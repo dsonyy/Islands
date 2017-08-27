@@ -68,13 +68,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Islands.licenseheader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="buffer.h" />
-    <ClInclude Include="window.h" />
+    <ClInclude Include="game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
