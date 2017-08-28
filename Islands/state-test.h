@@ -24,8 +24,10 @@ public:
 
 
 private:
+	sf::Vector2f RotatePoint(sf::Vector2f pos, float angle) const;
+
 	bool paused_;
-	sf::VertexArray quad_;;
+	sf::VertexArray quad_;
 	sf::Vector2f pos_;
 	sf::Vector2f size_;
 };
