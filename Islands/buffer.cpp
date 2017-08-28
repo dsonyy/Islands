@@ -1,5 +1,7 @@
 
-#include <cmath>
+#include <exception>
+#include <iostream>
+#include <algorithm>
 
 #include <SFML\System.hpp>
 #include <SFML\Window.hpp>
@@ -7,53 +9,41 @@
 
 #include "buffer.h"
 
-
-Buffer::Buffer(sf::Vector2f size, sf::Vector2f pos)
+Buffer::Buffer()
+	: width_(0), height_(0)
 {
-	size_.x = std::floor(size.x);
-	size_.y = std::floor(size.y);
+}
 
-	pos_ = pos;
-
-	texture_.create(unsigned int(size.x), unsigned int(size.y));
+Buffer::Buffer(size_t width, size_t height, sf::Vector2f pos)
+	: width_(width), height_(height), pos_(pos), color_map_(width * height)
+{
+	texture_.create(width, height);
 	sprite_.setTexture(texture_);
 
-	sd.reserve(12);
-	
 
-}
-
-Buffer::Buffer(const Buffer & buffer)
-{
-
-}
-
-Buffer::Buffer(const Buffer && buffer)
-{
-
-}
-
-Buffer & Buffer::operator=(const Buffer & buffer)
-{
-	return *this;
-}
-
-Buffer & Buffer::operator=(const Buffer && buffer)
-{
-	return *this;
 }
 
 Buffer::~Buffer()
 {
+}
+
+sf::Color & Buffer::operator()(size_t x, size_t y)
+{
+	try
+	{
+		if (x >= width_) throw std::range_error("X position out of range");
+		if (y >= height_) throw std::range_error("Y position out of range");
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	return color_map_[y * width_ + x];
 
 }
 
-bool Buffer::SetPixel(sf::Vector2f pos, sf::Color color)
+void Buffer::Clear(const sf::Color & color)
 {
-	return true;
-}
-
-void Buffer::Clear(sf::Color color)
-{
-
+	std::fill(color_map_.begin(), color_map_.end(), color);
 }

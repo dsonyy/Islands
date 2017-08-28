@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include <array>
+
 #include <SFML\System.hpp>
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
@@ -16,40 +18,38 @@
 class Buffer
 {
 public:
-	Buffer(sf::Vector2f size = sf::Vector2f(0, 0), 
+	Buffer();
+	Buffer(size_t width, size_t height,
 		   sf::Vector2f pos = sf::Vector2f(0, 0));
-	Buffer(const Buffer & buffer);
-	Buffer(const Buffer && buffer);
-	Buffer & operator=(const Buffer & buffer);
-	Buffer & operator=(const Buffer && buffer);
 	~Buffer();
-
 
 	operator sf::Sprite() const		{ return sprite_; };
 	operator sf::Texture() const	{ return texture_; };
-	operator sf::Color*() const		{ return color_map_; };
 
-	const sf::Sprite & GetSprite() const	{ return sprite_; }
-	const sf::Texture & GetTexture() const	{ return texture_; }
-	const sf::Color * GetColorMap() const	{ return color_map_; }
+	sf::Color & operator()(size_t x, size_t y);
 
-	unsigned int GetWidth() const	{ return unsigned int(size_.x); }
-	unsigned int GetHeight() const	{ return unsigned int(size_.y); }
-	unsigned int GetSize() const	{ return unsigned int(size_.x * size_.y); }
+	const sf::Sprite & GetSprite() const				{ return sprite_; }
+	const sf::Texture & GetTexture() const				{ return texture_; }
+	const std::vector<sf::Color> & GetColorMap() const	{ return color_map_; }
+
+	size_t GetWidth() const		{ return width_; }
+	size_t GetHeight() const	{ return height_; }
+	size_t GetSize() const		{ return width_ * height_; }
 
 	float GetX() const { return pos_.x; }
 	float GetY() const { return pos_.y; }
 
-
-	bool SetPixel(sf::Vector2f pos, sf::Color color);
-	void Clear(sf::Color color);
+	void Clear(const sf::Color & color);
 
 private:
+	size_t width_;
+	size_t height_;
+	sf::Vector2f pos_;
+
+	std::vector<sf::Color> color_map_;
 	sf::Texture texture_;
 	sf::Sprite sprite_;
-	sf::Color * color_map_;
-	sf::Vector2f pos_;
-	sf::Vector2f size_;
-	std::vector<int> sd;
+
+
 };
 
