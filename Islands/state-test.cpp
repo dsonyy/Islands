@@ -17,10 +17,14 @@ void StateTest::Init()
 	pos_.y = Window::Height / 2 - size_.y / 2;
 
 	quad_.setPrimitiveType(sf::PrimitiveType::Quads);
-	quad_.append(pos_ + sf::Vector2f(0, 0));
-	quad_.append(pos_ + sf::Vector2f(pos_.x, 0));
-	quad_.append(pos_ + sf::Vector2f(pos_.x, pos_.y));
-	quad_.append(pos_ + sf::Vector2f(0, pos_.y));
+	quad_.append(sf::Vertex(pos_ + sf::Vector2f(0, 0),
+		sf::Color::White));
+	quad_.append(sf::Vertex(pos_ + sf::Vector2f(size_.x, 0),
+		sf::Color::White));
+	quad_.append(sf::Vertex(pos_ + sf::Vector2f(size_.x, size_.y),
+		sf::Color::White));
+	quad_.append(sf::Vertex(pos_ + sf::Vector2f(0, size_.y),
+		sf::Color::White));
 }
 
 void StateTest::Cleanup()

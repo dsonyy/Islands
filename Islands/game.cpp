@@ -24,6 +24,7 @@ Game::Game(std::vector<StateI *> avalible_states)
 	CreateWindow(Window::Width, Window::Height, Window::Title);
 
 	states_.push_back(avalible_states.front());
+	states_.front()->Init();
 
 	running_ = true;
 }
@@ -96,16 +97,14 @@ void Game::Draw(const sf::Drawable & drawable)
 
 void Game::Render()
 {
-	
+	window_.clear();
+
+	window_.draw(screen_buffer_.GetSprite());
 
 	for each (StateI * state in states_)
 	{
 		state->Draw(*this);
 	}
-
-	window_.clear();
-
-	window_.draw(screen_buffer_.GetSprite());
 
 	window_.display();
 }
