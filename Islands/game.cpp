@@ -18,7 +18,7 @@
 
 Game::Game()
 {
-	CreateWindow(Window::Width, Window::Height, Window::Title);
+	CreateWindow(Window::Width, Window::Height, "");
 }
 
 Game::~Game()
@@ -30,7 +30,7 @@ void Game::CreateWindow(unsigned int width, unsigned int height,
 	const std::string & title)
 {
 	window_.create(sf::VideoMode(Window::Width, Window::Height), 
-		Window::Title, Window::Style);
+		"", Window::Style);
 }
 
 void Game::Loop()

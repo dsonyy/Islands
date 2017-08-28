@@ -67,6 +67,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="buffer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="game.cpp" />
   </ItemGroup>

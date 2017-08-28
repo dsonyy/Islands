@@ -50,7 +50,5 @@ public:
 	static const unsigned int Width = 800;
 	static const unsigned int Height = 600;
 	static const int Style = sf::Style::Close | sf::Style::Titlebar;
-	static const std::string Title;
 };
-const std::string Window::Title = "Islands";
 

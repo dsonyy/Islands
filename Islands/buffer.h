@@ -17,7 +17,7 @@ class Buffer
 {
 public:
 	Buffer(sf::Vector2f size = sf::Vector2f(0, 0), 
-		   sf::Vector2f position = sf::Vector2f(0, 0));
+		   sf::Vector2f pos = sf::Vector2f(0, 0));
 	Buffer(const Buffer & buffer);
 	Buffer(const Buffer && buffer);
 	Buffer & operator=(const Buffer & buffer);
@@ -50,5 +50,6 @@ private:
 	sf::Color * color_map_;
 	sf::Vector2f pos_;
 	sf::Vector2f size_;
+	std::vector<int> sd;
 };
 
