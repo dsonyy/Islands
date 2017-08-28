@@ -70,6 +70,7 @@
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="state-test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Islands.licenseheader" />
@@ -77,6 +78,7 @@
   <ItemGroup>
     <ClInclude Include="buffer.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="state-test.h" />
     <ClInclude Include="state-i.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

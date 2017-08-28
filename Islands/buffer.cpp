@@ -20,7 +20,6 @@ Buffer::Buffer(size_t width, size_t height, sf::Vector2f pos)
 	texture_.create(width, height);
 	sprite_.setTexture(texture_);
 
-
 }
 
 Buffer::~Buffer()

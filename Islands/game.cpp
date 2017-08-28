@@ -17,6 +17,7 @@
 
 
 Game::Game()
+	: screen_buffer_(Window::Width, Window::Height)
 {
 	CreateWindow(Window::Width, Window::Height, "");
 }
@@ -89,6 +90,8 @@ void Game::Draw(const sf::Drawable & drawable)
 
 void Game::Render()
 {
+	window_.draw(screen_buffer_);
+
 	for each (StateI * state in states_)
 	{
 		state->Draw(*this);

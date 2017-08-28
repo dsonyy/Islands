@@ -35,9 +35,9 @@ public:
 	void Render();
 
 
-
 private:
 	sf::RenderWindow window_;
+	Buffer screen_buffer_;
 	bool running_;
 	std::vector<StateI *> states_;
 };
