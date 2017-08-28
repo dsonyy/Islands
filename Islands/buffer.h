@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include <array>
+#include <vector>
 
 #include <SFML\System.hpp>
 #include <SFML\Window.hpp>
@@ -49,7 +49,6 @@ private:
 	std::vector<sf::Color> color_map_;
 	sf::Texture texture_;
 	sf::Sprite sprite_;
-
 
 };
 
