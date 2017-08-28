@@ -18,13 +18,12 @@
 class Buffer
 {
 public:
-	Buffer();
 	Buffer(size_t width, size_t height,
 		   sf::Vector2f pos = sf::Vector2f(0, 0));
 	~Buffer();
 
-	operator sf::Sprite() const		{ return sprite_; };
-	operator sf::Texture() const	{ return texture_; };
+	operator sf::Sprite &()		{ return sprite_; };
+	operator sf::Texture &() 	{ return texture_; };
 
 	sf::Color & operator()(size_t x, size_t y);
 

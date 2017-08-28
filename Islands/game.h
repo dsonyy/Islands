@@ -18,12 +18,10 @@
 #include "state-i.h"
 #include "buffer.h"
 
-class Window;
-
 class Game
 {
 public:
-	Game();
+	Game(std::vector<StateI *> avalible_states);
 	~Game();
 
 	void CreateWindow(unsigned int width, unsigned int height, const std::string & title);
@@ -42,13 +40,11 @@ private:
 	std::vector<StateI *> states_;
 };
 
-
-class Window
+namespace Window
 {
-public:
-	static const unsigned int FrameRate = 30;
-	static const unsigned int Width = 800;
-	static const unsigned int Height = 600;
-	static const int Style = sf::Style::Close | sf::Style::Titlebar;
-};
-
+	const unsigned int FrameRate = 30;
+	const unsigned int Width = 800;
+	const unsigned int Height = 600;
+	const int Style = sf::Style::Close | sf::Style::Titlebar;
+	const std::string Title = "Islands";
+}

@@ -15,11 +15,17 @@
 #include "game.h"
 #include "buffer.h"
 
+#include "state-test.h"
 
-Game::Game()
+
+Game::Game(std::vector<StateI *> avalible_states)
 	: screen_buffer_(Window::Width, Window::Height)
 {
-	CreateWindow(Window::Width, Window::Height, "");
+	CreateWindow(Window::Width, Window::Height, Window::Title);
+
+	states_.push_back(avalible_states.front());
+
+	running_ = true;
 }
 
 Game::~Game()
@@ -31,7 +37,7 @@ void Game::CreateWindow(unsigned int width, unsigned int height,
 	const std::string & title)
 {
 	window_.create(sf::VideoMode(Window::Width, Window::Height), 
-		"", Window::Style);
+		Window::Title, Window::Style);
 }
 
 void Game::Loop()
@@ -90,7 +96,7 @@ void Game::Draw(const sf::Drawable & drawable)
 
 void Game::Render()
 {
-	window_.draw(screen_buffer_);
+	
 
 	for each (StateI * state in states_)
 	{
@@ -98,5 +104,8 @@ void Game::Render()
 	}
 
 	window_.clear();
+
+	window_.draw(screen_buffer_.GetSprite());
+
 	window_.display();
 }
