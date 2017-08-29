@@ -68,6 +68,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\buffer.cpp" />
+    <ClCompile Include="Source\graphics-manager.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\game.cpp" />
     <ClCompile Include="Source\state-test.cpp" />
@@ -78,8 +79,10 @@
   <ItemGroup>
     <ClInclude Include="Source\buffer.h" />
     <ClInclude Include="Source\game.h" />
+    <ClInclude Include="Source\graphics-manager.h" />
     <ClInclude Include="Source\state-test.h" />
     <ClInclude Include="Source\state-i.h" />
+    <ClInclude Include="Source\window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -23,6 +23,15 @@ Buffer::~Buffer()
 {
 }
 
+void Buffer::draw(sf::RenderTarget & target, sf::RenderStates states) const
+{
+	states.transform *= getTransform();
+	
+	states.texture = &texture_;
+
+	target.draw(sprite_, states);
+}
+
 sf::Color & Buffer::operator()(size_t x, size_t y)
 {
 	try

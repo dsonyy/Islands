@@ -4,6 +4,7 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
+#include "window.h"
 #include "game.h"
 #include "state-i.h"
 #include "state-test.h"
@@ -60,9 +61,9 @@ void StateTest::Update(Game & game)
 
 }
 
-void StateTest::Draw(Game & game)
+void StateTest::Draw(GraphicsManager & graphics)
 {
-	game.Draw(quad_);
+	graphics.Draw(quad_);
 }
 
 void StateTest::Pause()

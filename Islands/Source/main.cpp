@@ -12,14 +12,14 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
+#include "graphics-manager.h"
 #include "state-i.h"
 #include "state-test.h"
 #include "game.h"
 
 int main()
 {
-
-
+	GraphicsManager graphics;
 
 	StateTest state_test;
 
@@ -28,7 +28,7 @@ int main()
 		&state_test 
 	};
 
-	Game game(avalible_states);
+	Game game(avalible_states, &graphics);
 
 	game.Loop();
 
