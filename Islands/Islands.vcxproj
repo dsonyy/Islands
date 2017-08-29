@@ -67,19 +67,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="buffer.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="state-test.cpp" />
+    <ClCompile Include="Source\buffer.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\game.cpp" />
+    <ClCompile Include="Source\state-test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Islands.licenseheader" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="buffer.h" />
-    <ClInclude Include="game.h" />
-    <ClInclude Include="state-test.h" />
-    <ClInclude Include="state-i.h" />
+    <ClInclude Include="Source\buffer.h" />
+    <ClInclude Include="Source\game.h" />
+    <ClInclude Include="Source\state-test.h" />
+    <ClInclude Include="Source\state-i.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
