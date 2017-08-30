@@ -18,10 +18,11 @@
 #include "state-test.h"
 
 
-Game::Game(std::vector<StateI *> avalible_states, GraphicsManager * graphics)
-	: graphics_(graphics)
+Game::Game(std::vector<StateI *> avalible_states, 
+	GraphicsManager * graphics, WindowManager * window)
+	: graphics_(graphics), window_(window)
 {
-	graphics_->CreateWindow();
+	window_->CreateWindow();
 
 	states_.push_back(avalible_states.front());
 	states_.front()->Init();
@@ -42,7 +43,7 @@ void Game::Loop()
 
 	while (running_)
 	{
-		while (window_.pollEvent(event))
+		while (window_->pollEvent(event))
 		{
 
 		}
@@ -54,8 +55,6 @@ void Game::Loop()
 
 			next_tick += sf::milliseconds(1000 / Window::FrameRate);
 		}
-
-
 	}
 }
 

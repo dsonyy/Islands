@@ -15,6 +15,7 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
+#include "window-manager.h"
 #include "graphics-manager.h"
 #include "state-i.h"
 #include "buffer.h"
@@ -22,7 +23,7 @@
 class Game
 {
 public:
-	Game(std::vector<StateI *> avalible_states, GraphicsManager * graphics);
+	Game(std::vector<StateI *> avalible_states, GraphicsManager * graphics, WindowManager * window);
 	~Game();
 
 	void Loop();
@@ -32,8 +33,8 @@ public:
 
 
 private:
+	WindowManager * window_;
 	GraphicsManager * graphics_;
-	sf::RenderWindow window_;
 	bool running_;
 	std::vector<StateI *> states_;
 };

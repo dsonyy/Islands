@@ -5,11 +5,12 @@
 #include <SFML\Graphics.hpp>
 
 #include "graphics-manager.h"
-#include "window.h"
+#include "window-manager.h"
 #include "buffer.h"
 
 
-GraphicsManager::GraphicsManager()
+GraphicsManager::GraphicsManager(WindowManager * window)
+	: window_(window)
 {
 }
 
@@ -35,15 +36,9 @@ void GraphicsManager::PopLayer()
 
 }
 
-void GraphicsManager::CreateWindow(size_t width, size_t height,
-	const std::string & title, size_t style)
-{
-	window_.create(sf::VideoMode(width, height), title, style);
-}
-
 void GraphicsManager::Draw(const sf::Drawable & drawable, sf::RenderStates states)
 {
-	window_.draw(drawable, states);
+	window_->draw(drawable, states);
 }
 
 void GraphicsManager::Draw(const Layer & layer,
@@ -51,7 +46,7 @@ void GraphicsManager::Draw(const Layer & layer,
 {
 	for each (auto & drawable in layer)
 	{
-		window_.draw(*drawable, states);
+		window_->draw(*drawable, states);
 	}
 }
 
@@ -61,7 +56,7 @@ void GraphicsManager::Draw(sf::RenderStates states)
 	{
 		for each (auto & drawable in layer)
 		{
-			window_.draw(*drawable, states);
+			window_->draw(*drawable, states);
 		}
 	}
 
@@ -69,5 +64,5 @@ void GraphicsManager::Draw(sf::RenderStates states)
 
 void GraphicsManager::Render()
 {
-	window_.display();
+	window_->display();
 }

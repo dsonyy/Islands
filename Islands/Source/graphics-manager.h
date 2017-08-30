@@ -6,7 +6,7 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
-#include "window.h"
+#include "window-manager.h"
 #include "buffer.h"
 
 typedef std::vector<sf::Drawable *> Layer;
@@ -17,7 +17,7 @@ public:
 
 	enum class Position { TOP, BOTTOM };
 
-	GraphicsManager();
+	GraphicsManager(WindowManager * window);
 	~GraphicsManager();
 
 	Layer & Front() { return layers_.front(); }
@@ -26,11 +26,6 @@ public:
 	Layer & PushLayer();
 	Layer & PushLayer(const Layer & layer);
 	void PopLayer();
-
-	void CreateWindow(size_t width = Window::Width,
-		size_t height = Window::Height, 
-		const std::string & title = Window::Title,
-		size_t style = Window::Style);
 
 	void Draw(const sf::Drawable & drawable,
 		sf::RenderStates states = sf::RenderStates::Default);
@@ -41,6 +36,6 @@ public:
 	void Render();
 
 private:
+	WindowManager * window_;
 	std::vector<Layer> layers_;
-	sf::RenderWindow window_;
 };

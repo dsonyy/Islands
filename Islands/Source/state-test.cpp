@@ -4,7 +4,7 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
-#include "window.h"
+#include "window-manager.h"
 #include "game.h"
 #include "state-i.h"
 #include "state-test.h"

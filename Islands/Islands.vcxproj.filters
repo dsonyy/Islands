@@ -30,6 +30,9 @@
     <ClCompile Include="Source\graphics-manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\window-manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Islands.licenseheader" />
@@ -50,7 +53,7 @@
     <ClInclude Include="Source\graphics-manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\window.h">
+    <ClInclude Include="Source\window-manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

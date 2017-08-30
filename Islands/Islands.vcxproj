@@ -72,6 +72,7 @@
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\game.cpp" />
     <ClCompile Include="Source\state-test.cpp" />
+    <ClCompile Include="Source\window-manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Islands.licenseheader" />
@@ -82,7 +83,7 @@
     <ClInclude Include="Source\graphics-manager.h" />
     <ClInclude Include="Source\state-test.h" />
     <ClInclude Include="Source\state-i.h" />
-    <ClInclude Include="Source\window.h" />
+    <ClInclude Include="Source\window-manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
