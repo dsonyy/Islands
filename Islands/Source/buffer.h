@@ -16,29 +16,28 @@
 
 
 class Buffer
+	: public sf::Drawable,
+	public sf::Transformable
 {
 public:
 	Buffer(size_t width, size_t height,
 		   sf::Vector2f pos = sf::Vector2f(0, 0));
 	~Buffer();
 
-	operator sf::Sprite &()		{ return sprite_; };
-	operator sf::Texture &() 	{ return texture_; };
+	// derived from sf::Drawable
+	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
+
 
 	sf::Color & operator()(size_t x, size_t y);
+	void Clear(const sf::Color & color);
 
-	const sf::Sprite & GetSprite() const				{ return sprite_; }
-	const sf::Texture & GetTexture() const				{ return texture_; }
-	const std::vector<sf::Color> & GetColorMap() const	{ return color_map_; }
-
+	
 	size_t GetWidth() const		{ return width_; }
 	size_t GetHeight() const	{ return height_; }
 	size_t GetSize() const		{ return width_ * height_; }
 
 	float GetX() const { return pos_.x; }
 	float GetY() const { return pos_.y; }
-
-	void Clear(const sf::Color & color);
 
 private:
 	size_t width_;

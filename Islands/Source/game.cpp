@@ -18,10 +18,10 @@
 #include "state-test.h"
 
 
-Game::Game(std::vector<StateI *> avalible_states)
-	: screen_buffer_(Window::Width, Window::Height)
+Game::Game(std::vector<StateI *> avalible_states, GraphicsManager * graphics)
+	: graphics_(graphics)
 {
-	CreateWindow(Window::Width, Window::Height, Window::Title);
+	graphics_->CreateWindow();
 
 	states_.push_back(avalible_states.front());
 	states_.front()->Init();
@@ -32,13 +32,6 @@ Game::Game(std::vector<StateI *> avalible_states)
 Game::~Game()
 {
 
-}
-
-void Game::CreateWindow(unsigned int width, unsigned int height, 
-	const std::string & title)
-{
-	window_.create(sf::VideoMode(Window::Width, Window::Height), 
-		Window::Title, Window::Style);
 }
 
 void Game::Loop()
@@ -90,21 +83,8 @@ void Game::Update()
 	}
 }
 
-void Game::Draw(const sf::Drawable & drawable)
-{
-	window_.draw(drawable);
-}
-
 void Game::Render()
 {
-	window_.clear();
-
-	window_.draw(screen_buffer_.GetSprite());
-
-	for each (StateI * state in states_)
-	{
-		state->Draw(*this);
-	}
-
-	window_.display();
+	graphics_->Draw();
+	graphics_->Render();
 }

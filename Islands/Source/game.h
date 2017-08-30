@@ -15,36 +15,25 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
+#include "graphics-manager.h"
 #include "state-i.h"
 #include "buffer.h"
 
 class Game
 {
 public:
-	Game(std::vector<StateI *> avalible_states);
+	Game(std::vector<StateI *> avalible_states, GraphicsManager * graphics);
 	~Game();
 
-	void CreateWindow(unsigned int width, unsigned int height, const std::string & title);
-	
 	void Loop();
 	void HandleInput(const sf::Event & event);
 	void Update();
-	void Draw(const sf::Drawable & drawable);
 	void Render();
 
 
 private:
+	GraphicsManager * graphics_;
 	sf::RenderWindow window_;
-	Buffer screen_buffer_;
 	bool running_;
 	std::vector<StateI *> states_;
 };
-
-namespace Window
-{
-	const unsigned int FrameRate = 60;
-	const unsigned int Width = 800;
-	const unsigned int Height = 600;
-	const int Style = sf::Style::Close | sf::Style::Titlebar;
-	const std::string Title = "Islands";
-}
