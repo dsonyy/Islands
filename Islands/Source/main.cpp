@@ -13,7 +13,6 @@
 #include <SFML\Graphics.hpp>
 
 #include "window-manager.h"
-#include "graphics-manager.h"
 #include "state-i.h"
 #include "state-test.h"
 #include "game.h"
@@ -21,7 +20,6 @@
 int main()
 {
 	WindowManager window;
-	GraphicsManager graphics(&window);
 
 	StateTest state_test;
 
@@ -30,7 +28,7 @@ int main()
 		&state_test 
 	};
 
-	Game game(avalible_states, &graphics, &window);
+	Game game(avalible_states, &window);
 	
 	game.Loop();
 

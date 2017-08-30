@@ -19,8 +19,8 @@
 
 
 Game::Game(std::vector<StateI *> avalible_states, 
-	GraphicsManager * graphics, WindowManager * window)
-	: graphics_(graphics), window_(window)
+	WindowManager * window)
+	: window_(window)
 {
 	window_->CreateWindow();
 
@@ -76,14 +76,17 @@ void Game::HandleInput(const sf::Event & event)
 
 void Game::Update()
 {
-	for each (StateI * state in states_)
-	{
-		state->Update(*this);
-	}
+	states_.back()->Update();
 }
 
 void Game::Render()
 {
-	graphics_->Draw();
-	graphics_->Render();
+	window_->clear();
+
+	for each (auto state in states_)
+	{
+		state->Draw(*window_);
+	}
+
+	window_->display();
 }

@@ -52,7 +52,7 @@ sf::Vector2f StateTest::RotatePoint(sf::Vector2f pos, float angle) const
 	return sf::Vector2f(pos.x, pos.y);
 }
 
-void StateTest::Update(Game & game)
+void StateTest::Update()
 {
 	quad_[0].position = RotatePoint(quad_[0].position, 0.01f);
 	quad_[1].position = RotatePoint(quad_[1].position, 0.01f);
@@ -61,9 +61,9 @@ void StateTest::Update(Game & game)
 
 }
 
-void StateTest::Draw(GraphicsManager & graphics)
+void StateTest::Draw(WindowManager & window)
 {
-	graphics.Draw(quad_);
+	window.draw(quad_);
 }
 
 void StateTest::Pause()

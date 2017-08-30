@@ -1,6 +1,6 @@
 #pragma once
 
-#include "graphics-manager.h"
+#include "window-manager.h"
 
 class Game;
 
@@ -12,8 +12,8 @@ public:
 	virtual void Init() = 0;
 	virtual void Cleanup() = 0;
 
-	virtual void Update(Game & game) = 0;
-	virtual void Draw(GraphicsManager & graphics) = 0;
+	virtual void Update() = 0;
+	virtual void Draw(WindowManager & window) = 0;
 
 	virtual void Pause() = 0;
 	virtual void Resume() = 0;

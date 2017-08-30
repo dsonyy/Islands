@@ -17,8 +17,8 @@ public:
 	virtual void Init();
 	virtual void Cleanup();
 
-	virtual void Update(Game & game);
-	virtual void Draw(GraphicsManager & graphics);
+	virtual void Update();
+	virtual void Draw(WindowManager & window);
 
 	virtual void Pause();
 	virtual void Resume();
