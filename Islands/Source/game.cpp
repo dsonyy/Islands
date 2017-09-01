@@ -20,12 +20,11 @@
 
 
 Game::Game(StatesContainer & states, WindowManager & window)
-	: window_(window)
+	: window_(window), state_(states.Test())
 {
 	window_.CreateWindow();
 
-	states.Test().Init();
-	states_.push_back(& states.Test());
+	state_.Init();
 	
 	running_ = true;
 }
@@ -81,33 +80,28 @@ void Game::HandleInput(const sf::Event & event)
 	
 	}
 
-	states_.back()->HandleInput(input_record);
+	state_.HandleInput(input_record);
 }
 
 void Game::Update()
 {
-	states_.back()->Update();
+	state_.Update();
 }
 
 void Game::Render()
 {
 	window_.clear();
 
-	for each (auto state in states_)
-	{
-		state->Draw(window_);
-	}
+	state_.Draw(window_);
 
 	window_.display();
 }
 
-void Game::PopState()
+void Game::ChangeState(StateI & new_state)
 {
-	states_.pop_back();
+	state_.Cleanup();
 
-}
-
-void Game::PushState(StateI * state)
-{
-	states_.push_back(state);
+	state_ = new_state;
+	
+	state_.Init();
 }

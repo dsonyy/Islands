@@ -31,12 +31,10 @@ public:
 	void Update();
 	void Render();
 
-	void PopState();
-	void PushState(StateI * state);
+	void ChangeState(StateI & new_state);
 
 private:
 	WindowManager & window_;
 	bool running_;
-	sf::Vector2i mouse_;
-	std::vector<StateI *> states_;
+	StateI & state_;
 };
