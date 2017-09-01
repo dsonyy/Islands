@@ -16,25 +16,22 @@
 #include "buffer.h"
 #include "input-record.h"
 
-#include "state-test.h"
+#include "states-container.h"
 
 
-Game::Game(std::vector<StateI *> avalible_states, 
-	WindowManager * window)
+Game::Game(StatesContainer & states, WindowManager & window)
 	: window_(window)
 {
-	window_->CreateWindow();
+	window_.CreateWindow();
 
-	states_.push_back(avalible_states.front());
-	states_.front()->Init();
-
-	std::fill(keys_, keys_ + sf::Keyboard::KeyCount, false);
+	states.Test().Init();
+	states_.push_back(& states.Test());
+	
 	running_ = true;
 }
 
 Game::~Game()
 {
-
 }
 
 void Game::Loop()
@@ -45,7 +42,7 @@ void Game::Loop()
 
 	while (running_)
 	{
-		while (window_->pollEvent(event))
+		while (window_.pollEvent(event))
 		{
 			HandleInput(event);
 		}
@@ -94,14 +91,14 @@ void Game::Update()
 
 void Game::Render()
 {
-	window_->clear();
+	window_.clear();
 
 	for each (auto state in states_)
 	{
-		state->Draw(*window_);
+		state->Draw(window_);
 	}
 
-	window_->display();
+	window_.display();
 }
 
 void Game::PopState()

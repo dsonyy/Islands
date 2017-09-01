@@ -17,12 +17,13 @@
 
 #include "window-manager.h"
 #include "state-i.h"
+#include "states-container.h"
 #include "buffer.h"
 
 class Game
 {
 public:
-	Game(std::vector<StateI *> avalible_states, WindowManager * window);
+	Game(StatesContainer & states, WindowManager & window);
 	~Game();
 
 	void Loop();
@@ -34,9 +35,8 @@ public:
 	void PushState(StateI * state);
 
 private:
-	WindowManager * window_;
+	WindowManager & window_;
 	bool running_;
-	bool keys_[sf::Keyboard::KeyCount];
 	sf::Vector2i mouse_;
 	std::vector<StateI *> states_;
 };

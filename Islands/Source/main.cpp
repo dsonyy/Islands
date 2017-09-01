@@ -13,22 +13,15 @@
 #include <SFML\Graphics.hpp>
 
 #include "window-manager.h"
-#include "state-i.h"
-#include "state-test.h"
+#include "states-container.h"
 #include "game.h"
 
 int main()
 {
 	WindowManager window;
+	StatesContainer states;
 
-	StateTest state_test;
-
-	std::vector<StateI *> avalible_states 
-	{ 
-		&state_test 
-	};
-
-	Game game(avalible_states, &window);
+	Game game(states, window);
 	
 	game.Loop();
 
