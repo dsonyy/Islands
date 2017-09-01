@@ -27,6 +27,7 @@ Game::Game(std::vector<StateI *> avalible_states,
 	states_.push_back(avalible_states.front());
 	states_.front()->Init();
 
+	std::fill(keys_, keys_ + sf::Keyboard::KeyCount, false);
 	running_ = true;
 }
 
@@ -45,7 +46,7 @@ void Game::Loop()
 	{
 		while (window_->pollEvent(event))
 		{
-
+			HandleInput(event);
 		}
 
 		if (clock.getElapsedTime() >= next_tick)
@@ -63,12 +64,18 @@ void Game::HandleInput(const sf::Event & event)
 	switch (event.type)
 	{
 	case sf::Event::Closed:
+		running_ = false;
 		break;
-	
+	case sf::Event::MouseMoved:
+		mouse_ = sf::Mouse::getPosition();
+		break;
+
 	case sf::Event::KeyPressed:
+		keys_[event.key.code] = true;
 		break;
 
 	case sf::Event::KeyReleased:
+		keys_[event.key.code] = false;
 		break;
 	
 	}

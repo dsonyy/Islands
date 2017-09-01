@@ -53,5 +53,8 @@
     <ClInclude Include="Source\states-container.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\input-record.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

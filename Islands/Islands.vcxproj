@@ -79,6 +79,7 @@
   <ItemGroup>
     <ClInclude Include="Source\buffer.h" />
     <ClInclude Include="Source\game.h" />
+    <ClInclude Include="Source\input-record.h" />
     <ClInclude Include="Source\state-test.h" />
     <ClInclude Include="Source\state-i.h" />
     <ClInclude Include="Source\states-container.h" />

@@ -36,5 +36,7 @@ public:
 private:
 	WindowManager * window_;
 	bool running_;
+	bool keys_[sf::Keyboard::KeyCount];
+	sf::Vector2i mouse_;
 	std::vector<StateI *> states_;
 };

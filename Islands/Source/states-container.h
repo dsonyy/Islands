@@ -1,7 +1,5 @@
 #pragma once
 
-#include <memory>
-
 #include "state-i.h"
 #include "state-test.h"
 
