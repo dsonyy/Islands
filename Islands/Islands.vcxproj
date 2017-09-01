@@ -81,6 +81,7 @@
     <ClInclude Include="Source\game.h" />
     <ClInclude Include="Source\state-test.h" />
     <ClInclude Include="Source\state-i.h" />
+    <ClInclude Include="Source\states-container.h" />
     <ClInclude Include="Source\window-manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
