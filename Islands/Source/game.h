@@ -30,6 +30,8 @@ public:
 	void Update();
 	void Render();
 
+	void PopState();
+	void PushState(StateI * state);
 
 private:
 	WindowManager * window_;

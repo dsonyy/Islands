@@ -90,3 +90,14 @@ void Game::Render()
 
 	window_->display();
 }
+
+void Game::PopState()
+{
+	states_.pop_back();
+
+}
+
+void Game::PushState(StateI * state)
+{
+	states_.push_back(state);
+}
