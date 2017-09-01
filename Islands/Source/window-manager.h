@@ -1,3 +1,11 @@
+/*
+ *	Program:	Islands
+ *	License:	GNU GPL 2.0
+ *	Author:		dsonyy
+ *	GitHub:		https://github.com/dsonyy/Islands
+ */
+
+
 #pragma once
 
 #include <SFML\System.hpp>
