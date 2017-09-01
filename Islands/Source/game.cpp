@@ -14,6 +14,7 @@
 
 #include "game.h"
 #include "buffer.h"
+#include "input-record.h"
 
 #include "state-test.h"
 
@@ -61,24 +62,29 @@ void Game::Loop()
 
 void Game::HandleInput(const sf::Event & event)
 {
+	InputRecord input_record;
+
 	switch (event.type)
 	{
 	case sf::Event::Closed:
 		running_ = false;
 		break;
+
 	case sf::Event::MouseMoved:
-		mouse_ = sf::Mouse::getPosition();
+		input_record.PackMousePos(sf::Mouse::getPosition());
 		break;
 
 	case sf::Event::KeyPressed:
-		keys_[event.key.code] = true;
+		input_record.PackKeyboard(event.key.code, InputStatus::PRESSED);
 		break;
 
 	case sf::Event::KeyReleased:
-		keys_[event.key.code] = false;
+		input_record.PackKeyboard(event.key.code, InputStatus::RELEASED);
 		break;
 	
 	}
+
+	states_.back()->HandleInput(input_record);
 }
 
 void Game::Update()

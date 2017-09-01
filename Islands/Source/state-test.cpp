@@ -52,6 +52,11 @@ sf::Vector2f StateTest::RotatePoint(sf::Vector2f pos, float angle) const
 	return sf::Vector2f(pos.x, pos.y);
 }
 
+void StateTest::HandleInput(const InputRecord & input_record)
+{
+
+}
+
 void StateTest::Update()
 {
 	quad_[0].position = RotatePoint(quad_[0].position, 0.01f);

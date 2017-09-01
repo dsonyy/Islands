@@ -10,7 +10,7 @@ enum class InputStatus { UNCHANGED = -1, RELEASED = 0, PRESSED };
 class InputRecord
 {
 public:
-	InputRecord() {}
+	InputRecord() : mouse_moved_(false) {}
 	~InputRecord() {}
 
 	void PackKeyboard(sf::Keyboard::Key keyboard_key, InputStatus status)
@@ -18,12 +18,12 @@ public:
 		keys_[keyboard_key] = status;
 	}
 
-	void PackMouseButton(sf::Vector2i mouse_pos)
+	void PackMousePos(sf::Vector2i mouse_pos)
 	{
 		mouse_pos_ = mouse_pos;
 	}
 
-	void PackMousePos(sf::Mouse::Button mouse_button, InputStatus status)
+	void PackMouseButton(sf::Mouse::Button mouse_button, InputStatus status)
 	{
 		buttons_[mouse_button] = status;
 	}
@@ -38,6 +38,11 @@ public:
 		return buttons_[mouse_button_to_get];
 	}
 
+	bool MouseMoved() const
+	{
+		return mouse_moved_;
+	}
+
 	sf::Vector2i UnpackMousePos() const
 	{
 		return mouse_pos_;
@@ -47,6 +52,7 @@ private:
 	InputStatus keys_[sf::Keyboard::KeyCount];
 	InputStatus buttons_[sf::Mouse::ButtonCount];
 
+	bool mouse_moved_;
 	sf::Vector2i mouse_pos_;
 
 };

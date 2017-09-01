@@ -17,6 +17,7 @@ public:
 	virtual void Init();
 	virtual void Cleanup();
 
+	virtual void HandleInput(const InputRecord & input_record);
 	virtual void Update();
 	virtual void Draw(WindowManager & window);
 
