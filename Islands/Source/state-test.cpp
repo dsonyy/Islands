@@ -38,7 +38,7 @@ void StateTest::HandleInput(const InputRecord & input_record)
 
 void StateTest::Update()
 {
-
+	buffer_.rotate(1);
 }
 
 void StateTest::Draw(WindowManager & window)

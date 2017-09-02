@@ -19,7 +19,7 @@ class StateTest
 	: public StateI
 {
 public:
-	StateTest() : paused_(true), buffer_(100, 100, sf::Vector2f(300,300)){}
+	StateTest() : paused_(true), buffer_(100, 100, sf::Vector2f(500,500)){}
 	~StateTest() {}
 
 	virtual void Init();

@@ -20,11 +20,13 @@
 Buffer::Buffer(size_t width, size_t height, sf::Vector2f pos)
 	: width_(width), height_(height), pos_(pos), color_map_(width * height)
 {
+	setPosition(pos);
+	setOrigin(sf::Vector2f(pos.x + width / 2, pos.y + height / 2));
+
 	texture_.create(width, height);
 
 	sprite_.setTexture(texture_);
-
-	texture_.update((sf::Uint8*)&color_map_[0]);
+	sprite_.setPosition(pos);
 }
 
 Buffer::~Buffer()
