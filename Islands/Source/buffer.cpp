@@ -31,6 +31,11 @@ Buffer::~Buffer()
 {
 }
 
+void Buffer::UpdateTexture()
+{
+	texture_.update((sf::Uint8*)&color_map_[0]);
+}
+
 void Buffer::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	states.transform *= getTransform();
@@ -40,25 +45,29 @@ void Buffer::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	target.draw(sprite_, states);
 }
 
-sf::Color & Buffer::operator()(size_t x, size_t y)
+const sf::Color & Buffer::GetColor(size_t x, size_t y) const
 {
-	try
+	if (x >= width_ || y >= height_)
 	{
-		if (x >= width_) throw std::range_error("X position out of range");
-		if (y >= height_) throw std::range_error("Y position out of range");
+		return sf::Color::Transparent;
 	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	texture_.update((sf::Uint8*)&color_map_[0]);
 
 	return color_map_[y * width_ + x];
+}
 
+bool Buffer::SetColor(size_t x, size_t y, sf::Color color)
+{
+	if (x >= width_ || y >= height_)
+	{
+		return false;
+	}
+
+	color_map_[y * width_ + x] = color;
 }
 
 void Buffer::Clear(const sf::Color & color)
 {
 	std::fill(color_map_.begin(), color_map_.end(), color);
+	
+	UpdateTexture();
 }

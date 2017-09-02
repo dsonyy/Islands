@@ -19,7 +19,7 @@ class StateTest
 	: public StateI
 {
 public:
-	StateTest() : paused_(true), buffer_(100,100,sf::Vector2f(400,300)){}
+	StateTest() : paused_(true), buffer_(100, 100, sf::Vector2f(300,300)){}
 	~StateTest() {}
 
 	virtual void Init();
@@ -34,12 +34,6 @@ public:
 
 
 private:
-	sf::Vector2f RotatePoint(sf::Vector2f pos, float angle) const;
-
 	bool paused_;
 	Buffer buffer_;
-
-	sf::VertexArray quad_;
-	sf::Vector2f pos_;
-	sf::Vector2f size_;
 };

@@ -27,9 +27,10 @@ public:
 	// derived from sf::Drawable
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 
-
-	sf::Color & operator()(size_t x, size_t y);
+	const sf::Color & GetColor(size_t x, size_t y) const;
+	bool SetColor(size_t x, size_t y, sf::Color color);
 	void Clear(const sf::Color & color);
+
 
 	
 	size_t GetWidth() const		{ return width_; }
@@ -40,6 +41,8 @@ public:
 	float GetY() const { return pos_.y; }
 
 private:
+	void UpdateTexture();
+
 	size_t width_;
 	size_t height_;
 	sf::Vector2f pos_;

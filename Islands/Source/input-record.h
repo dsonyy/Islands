@@ -28,6 +28,7 @@ public:
 
 	void PackMousePos(sf::Vector2i mouse_pos)
 	{
+		mouse_moved_ = true;
 		mouse_pos_ = mouse_pos;
 	}
 
