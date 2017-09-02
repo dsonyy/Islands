@@ -27,7 +27,7 @@ public:
 	~Game();
 
 	void Loop();
-	void HandleInput(const sf::Event & event);
+	void HandleInput();
 	void Update();
 	void Render();
 

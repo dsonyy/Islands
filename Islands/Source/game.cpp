@@ -37,14 +37,10 @@ void Game::Loop()
 {
 	sf::Clock clock;
 	sf::Time next_tick;
-	sf::Event event;
-
+	
 	while (running_)
 	{
-		while (window_.pollEvent(event))
-		{
-			HandleInput(event);
-		}
+		HandleInput();
 
 		if (clock.getElapsedTime() >= next_tick)
 		{
@@ -56,28 +52,32 @@ void Game::Loop()
 	}
 }
 
-void Game::HandleInput(const sf::Event & event)
+void Game::HandleInput()
 {
 	InputRecord input_record;
+	sf::Event event;
 
-	switch (event.type)
+	while (window_.pollEvent(event))
 	{
-	case sf::Event::Closed:
-		running_ = false;
-		break;
+		switch (event.type)
+		{
+		case sf::Event::Closed:
+			running_ = false;
+			break;
 
-	case sf::Event::MouseMoved:
-		input_record.PackMousePos(sf::Mouse::getPosition());
-		break;
+		case sf::Event::MouseMoved:
+			input_record.PackMousePos(sf::Mouse::getPosition());
+			break;
 
-	case sf::Event::KeyPressed:
-		input_record.PackKeyboard(event.key.code, InputStatus::PRESSED);
-		break;
+		case sf::Event::KeyPressed:
+			input_record.PackKeyboard(event.key.code, InputStatus::PRESSED);
+			break;
 
-	case sf::Event::KeyReleased:
-		input_record.PackKeyboard(event.key.code, InputStatus::RELEASED);
-		break;
-	
+		case sf::Event::KeyReleased:
+			input_record.PackKeyboard(event.key.code, InputStatus::RELEASED);
+			break;
+
+		}
 	}
 
 	state_.HandleInput(input_record);
