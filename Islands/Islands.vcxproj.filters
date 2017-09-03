@@ -24,25 +24,13 @@
     <ClCompile Include="Source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\state-test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\window-manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\state-intro.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\state-outro.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\state-game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\state-menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\states-manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\state-intro.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,28 +47,16 @@
     <ClInclude Include="Source\state-i.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\state-test.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\window-manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\input-record.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\state-game.h">
+    <ClInclude Include="Source\states-manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\state-intro.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\state-outro.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\state-menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\states-manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -15,10 +15,12 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
+//#include "states-manager.h"
 #include "window-manager.h"
 #include "state-i.h"
-#include "states-manager.h"
 #include "buffer.h"
+
+class StatesManager;
 
 class Game
 {

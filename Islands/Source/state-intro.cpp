@@ -63,7 +63,7 @@ StateI * StateIntro::WaitForChange(StatesManager & states_manager)
 {
 	if (switch_to_menu_)
 	{
-		return &states_manager.Menu();
+		return &states_manager.Intro();
 	}
 
 	return &states_manager.Intro();
