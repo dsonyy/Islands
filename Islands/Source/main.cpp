@@ -15,14 +15,16 @@
 
 #include "window-manager.h"
 #include "states-manager.h"
+#include "resources-manager.h"
 #include "game.h"
 
 int main()
 {
 	WindowManager window;
 	StatesManager states;
+	ResourcesManager resources;
 
-	Game game(states, window);
+	Game game(states, window, resources);
 	
 	game.Loop();
 

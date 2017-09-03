@@ -19,6 +19,8 @@ bool ResourcesManager::ImportFont(const std::string & filename, const std::strin
 	{
 		return false;
 	}
+
+	return true;
 }
 
 bool ResourcesManager::ImportTexture(const std::string & filename, const std::string & new_name)
@@ -34,6 +36,8 @@ bool ResourcesManager::ImportTexture(const std::string & filename, const std::st
 	{
 		return false;
 	}
+
+	return true;
 }
 
 sf::Font & ResourcesManager::GetFont(const std::string & name)
