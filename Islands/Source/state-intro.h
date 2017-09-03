@@ -1,29 +1,23 @@
-/*
- *	Program:	Islands
- *	License:	GNU GPL 2.0
- *	Author:		dsonyy
- *	GitHub:		https://github.com/dsonyy/Islands
- */
-
-
 #pragma once
 
 #include <SFML\System.hpp>
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
+#include "game.h"
 #include "state-i.h"
 #include "buffer.h"
 #include "input-record.h"
 #include "window-manager.h"
 
-
-class StateTest
+class StateIntro
 	: public StateI
 {
 public:
-	StateTest() : paused_(true), buffer_(100, 100, sf::Vector2f(500,500)){}
-	~StateTest() {}
+	StateIntro() : paused_(true), switch_to_menu_(false),
+		rect_(Window::Width / 2, Window::Height / 2,
+		sf::Vector2f(Window::Width, Window::Height)) {}
+	~StateIntro() {}
 
 	virtual void Init();
 	virtual void Cleanup();
@@ -35,8 +29,9 @@ public:
 	virtual void Pause();
 	virtual void Resume();
 
-
 private:
 	bool paused_;
-	Buffer buffer_;
+	bool switch_to_menu_;
+	Buffer rect_;
+	int loops_;
 };

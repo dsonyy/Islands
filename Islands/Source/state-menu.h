@@ -1,11 +1,3 @@
-/*
- *	Program:	Islands
- *	License:	GNU GPL 2.0
- *	Author:		dsonyy
- *	GitHub:		https://github.com/dsonyy/Islands
- */
-
-
 #pragma once
 
 #include <SFML\System.hpp>
@@ -17,13 +9,12 @@
 #include "input-record.h"
 #include "window-manager.h"
 
-
-class StateTest
+class StateMenu
 	: public StateI
 {
 public:
-	StateTest() : paused_(true), buffer_(100, 100, sf::Vector2f(500,500)){}
-	~StateTest() {}
+	StateMenu() : paused_(true) {}
+	~StateMenu() {}
 
 	virtual void Init();
 	virtual void Cleanup();
@@ -38,5 +29,5 @@ public:
 
 private:
 	bool paused_;
-	Buffer buffer_;
+
 };

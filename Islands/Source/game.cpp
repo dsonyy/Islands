@@ -20,7 +20,7 @@
 
 
 Game::Game(StatesContainer & states, WindowManager & window)
-	: window_(window), state_(states.Test())
+	: window_(window), state_(states.Intro())
 {
 	window_.CreateWindow();
 
@@ -49,6 +49,7 @@ void Game::Loop()
 
 			next_tick += sf::milliseconds(1000 / Window::FrameRate);
 		}
+
 	}
 }
 

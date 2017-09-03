@@ -9,6 +9,11 @@
 #pragma once
 
 #include "state-i.h"
+
+#include "state-intro.h"
+#include "state-outro.h"
+#include "state-menu.h"
+#include "state-game.h"
 #include "state-test.h"
 
 class StatesContainer
@@ -17,13 +22,13 @@ public:
 	StatesContainer() {}
 	~StatesContainer() {}
 
-	StateI & Intro()	{ return test_; }
-	StateI & Outro()	{ return test_; }
-	StateI & Game()		{ return test_; }
-	StateI & Menu()		{ return test_; }
-	StateI & Test()		{ return test_; }
+	StateI & Intro()	{ return intro_; }
+	StateI & Outro()	{ return intro_; }
+	StateI & Game()		{ return intro_; }
+	StateI & Menu()		{ return intro_; }
+	StateI & Test()		{ return intro_; }
 
 private:
-	StateTest test_;
-	
+	StateIntro intro_;
+
 };

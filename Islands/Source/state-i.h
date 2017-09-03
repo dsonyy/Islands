@@ -8,8 +8,10 @@
 
 #pragma once
 
+#include "game.h"
 #include "input-record.h"
 #include "window-manager.h"
+#include "states-container.h"
 
 class Game;
 
@@ -27,6 +29,5 @@ public:
 
 	virtual void Pause() = 0;
 	virtual void Resume() = 0;
-
 };
 

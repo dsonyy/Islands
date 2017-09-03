@@ -70,6 +70,10 @@
     <ClCompile Include="Source\buffer.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\game.cpp" />
+    <ClCompile Include="Source\state-game.cpp" />
+    <ClCompile Include="Source\state-intro.cpp" />
+    <ClCompile Include="Source\state-menu.cpp" />
+    <ClCompile Include="Source\state-outro.cpp" />
     <ClCompile Include="Source\state-test.cpp" />
     <ClCompile Include="Source\window-manager.cpp" />
   </ItemGroup>
@@ -80,6 +84,10 @@
     <ClInclude Include="Source\buffer.h" />
     <ClInclude Include="Source\game.h" />
     <ClInclude Include="Source\input-record.h" />
+    <ClInclude Include="Source\state-game.h" />
+    <ClInclude Include="Source\state-intro.h" />
+    <ClInclude Include="Source\state-menu.h" />
+    <ClInclude Include="Source\state-outro.h" />
     <ClInclude Include="Source\state-test.h" />
     <ClInclude Include="Source\state-i.h" />
     <ClInclude Include="Source\states-container.h" />
