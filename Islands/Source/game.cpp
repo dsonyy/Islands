@@ -67,7 +67,7 @@ void Game::HandleInput()
 		case sf::Event::MouseMoved:
 			input_record.PackMousePos(sf::Mouse::getPosition(window_));
 			break;
-
+			
 		case sf::Event::KeyPressed:
 			input_record.PackKeyboard(event.key.code, InputStatus::PRESSED);
 			break;

@@ -18,31 +18,28 @@ enum class InputStatus { UNCHANGED = -1, RELEASED = 0, PRESSED };
 class InputRecord
 {
 public:
-	InputRecord() : mouse_moved_(false) {}
+	InputRecord() : mouse_moved_(false),
+		key_clikced_(false),
+		button_clicked_(false) {}
 	~InputRecord() {}
 
 	void PackKeyboard(sf::Keyboard::Key keyboard_key, InputStatus status)
 	{
+		if (status == InputStatus::PRESSED) key_clikced_ = true;
 		keys_[keyboard_key] = status;
-		if (buttons_[keyboard_key] == InputStatus::RELEASED)
-		{
-			key_clikced_ = true;
-		}
+
 	}
 
 	void PackMousePos(sf::Vector2i mouse_pos)
 	{
-		mouse_pos_ = mouse_pos;
 		mouse_moved_ = true;
+		mouse_pos_ = mouse_pos;
 	}
 
 	void PackMouseButton(sf::Mouse::Button mouse_button, InputStatus status)
 	{
+		if (status == InputStatus::PRESSED) button_clicked_ = true;
 		buttons_[mouse_button] = status;
-		if (buttons_[mouse_button] == InputStatus::RELEASED)
-		{
-			button_clicked_ = true;
-		}
 	}
 
 	InputStatus UnpackKeyboard(sf::Keyboard::Key key_to_get) const

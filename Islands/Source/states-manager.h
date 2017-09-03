@@ -10,22 +10,26 @@
 
 #include "state-i.h"
 #include "state-intro.h"
+#include "state-menu.h"
 
 
 class StatesManager
 {
 public:
-	StatesManager() {}
+	StatesManager();
 	~StatesManager() {}
 
 	StateI & GetActiveState();
 
-	StateI & Intro() 	{ return intro_; }
+	StateI & BeginState() { return intro_; }
+
+	StateI & Intro() { return intro_; }
+	StateI & Menu() { return menu_; }
 
 
 private:
 	StateI * active_state_;
 
 	StateIntro intro_;
-
+	StateMenu menu_;
 };

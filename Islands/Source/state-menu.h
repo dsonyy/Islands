@@ -12,14 +12,12 @@
 
 class StatesManager;
 
-class StateIntro
+class StateMenu
 	: public StateI
 {
 public:
-	StateIntro() : paused_(true), switch_to_menu_(false),
-		rect_(Window::Width / 4, Window::Height / 4,
-		sf::Vector2f(Window::Width / 2 , Window::Height / 2)) {}
-	~StateIntro() {}
+	StateMenu() : paused_(true) {}
+	~StateMenu() {}
 
 	virtual void Init();
 	virtual void Cleanup();
@@ -40,7 +38,5 @@ public:
 private:
 	bool init_;
 	bool paused_;
-	bool switch_to_menu_;
-	Buffer rect_;
-	int loops_;
+
 };

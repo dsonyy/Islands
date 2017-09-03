@@ -7,6 +7,7 @@
 void StateIntro::Init()
 {
 	loops_ = 0;
+	paused_ = false;
 }
 
 void StateIntro::Cleanup()
@@ -19,6 +20,12 @@ void StateIntro::HandleInput(const InputRecord & input_record)
 	if (input_record.ButtonClicked() || input_record.KeyClicked())
 	{
 		switch_to_menu_ = true;
+	}
+
+	if (input_record.MouseMoved())
+	{
+		rect_.setPosition(
+			static_cast<sf::Vector2f>(input_record.UnpackMousePos()));
 	}
 }
 
@@ -39,9 +46,9 @@ void StateIntro::Update()
 			loops_ = 0;
 		}
 
-		rect_.rotate(1.0f);
 	}
 
+	rect_.rotate(1.0f);
 }
 
 void StateIntro::Draw(WindowManager & window)
@@ -63,7 +70,7 @@ StateI * StateIntro::IsCompleted(StatesManager & states_manager)
 {
 	if (switch_to_menu_)
 	{
-		return &states_manager.Intro();
+		return &states_manager.Menu();
 	}
 
 	return &states_manager.Intro();
