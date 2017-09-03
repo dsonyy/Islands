@@ -34,3 +34,9 @@ void StateGame::Resume()
 {
 
 }
+
+StateI * StateGame::WaitForChange(StatesManager & states_manager)
+{
+
+	return &states_manager.Game();
+}

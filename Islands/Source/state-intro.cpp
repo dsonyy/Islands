@@ -2,7 +2,7 @@
 
 #include "state-intro.h"
 #include "window-manager.h"
-#include "states-container.h"
+#include "states-manager.h"
 
 void StateIntro::Init()
 {
@@ -58,3 +58,14 @@ void StateIntro::Resume()
 {
 	paused_ = false;
 }
+
+StateI * StateIntro::WaitForChange(StatesManager & states_manager)
+{
+	if (switch_to_menu_)
+	{
+		return &states_manager.Menu();
+	}
+
+	return &states_manager.Intro();
+}
+

@@ -16,16 +16,14 @@
 #include "buffer.h"
 #include "input-record.h"
 
-#include "states-container.h"
+#include "states-manager.h"
 
 
-Game::Game(StatesContainer & states, WindowManager & window)
-	: window_(window), state_(states.Intro())
+Game::Game(StatesManager & states, WindowManager & window)
+	: window_(window), states_(states)
 {
 	window_.CreateWindow();
 
-	state_.Init();
-	
 	running_ = true;
 }
 
@@ -81,28 +79,19 @@ void Game::HandleInput()
 		}
 	}
 
-	state_.HandleInput(input_record);
+	states_.GetActiveState().HandleInput(input_record);
 }
 
 void Game::Update()
 {
-	state_.Update();
+	states_.GetActiveState().Update();
 }
 
 void Game::Render()
 {
 	window_.clear();
 
-	state_.Draw(window_);
+	states_.GetActiveState().Draw(window_);
 
 	window_.display();
-}
-
-void Game::ChangeState(StateI & new_state)
-{
-	state_.Cleanup();
-
-	state_ = new_state;
-	
-	state_.Init();
 }

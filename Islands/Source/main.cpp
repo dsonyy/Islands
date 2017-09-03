@@ -14,13 +14,13 @@
 #include <SFML\Graphics.hpp>
 
 #include "window-manager.h"
-#include "states-container.h"
+#include "states-manager.h"
 #include "game.h"
 
 int main()
 {
 	WindowManager window;
-	StatesContainer states;
+	StatesManager states;
 
 	Game game(states, window);
 	

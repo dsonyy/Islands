@@ -34,3 +34,8 @@ void StateMenu::Resume()
 {
 
 }
+
+StateI * StateMenu::WaitForChange(StatesManager & states_manager)
+{
+
+}

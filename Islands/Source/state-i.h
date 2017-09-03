@@ -11,9 +11,8 @@
 #include "game.h"
 #include "input-record.h"
 #include "window-manager.h"
-#include "states-container.h"
 
-class Game;
+class StatesManager;
 
 class StateI
 {
@@ -29,5 +28,8 @@ public:
 
 	virtual void Pause() = 0;
 	virtual void Resume() = 0;
+
+	virtual StateI * WaitForChange(StatesManager & states_manager) = 0;
+
 };
 

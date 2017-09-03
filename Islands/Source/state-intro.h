@@ -10,6 +10,8 @@
 #include "input-record.h"
 #include "window-manager.h"
 
+class StatesManager;
+
 class StateIntro
 	: public StateI
 {
@@ -28,6 +30,9 @@ public:
 
 	virtual void Pause();
 	virtual void Resume();
+
+	virtual StateI * WaitForChange(StatesManager & states_manager);
+
 
 private:
 	bool paused_;

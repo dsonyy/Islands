@@ -17,13 +17,13 @@
 
 #include "window-manager.h"
 #include "state-i.h"
-#include "states-container.h"
+#include "states-manager.h"
 #include "buffer.h"
 
 class Game
 {
 public:
-	Game(StatesContainer & states, WindowManager & window);
+	Game(StatesManager & states, WindowManager & window);
 	~Game();
 
 	void Loop();
@@ -31,10 +31,8 @@ public:
 	void Update();
 	void Render();
 
-	void ChangeState(StateI & new_state);
-
 private:
 	WindowManager & window_;
 	bool running_;
-	StateI & state_;
+	StatesManager & states_;
 };

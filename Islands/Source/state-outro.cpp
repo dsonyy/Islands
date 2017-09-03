@@ -34,3 +34,8 @@ void StateOutro::Resume()
 {
 
 }
+
+StateI * StateOutro::WaitForChange(StatesManager & states_manager)
+{
+
+}

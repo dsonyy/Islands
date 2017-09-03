@@ -72,6 +72,7 @@
     <ClCompile Include="Source\game.cpp" />
     <ClCompile Include="Source\state-game.cpp" />
     <ClCompile Include="Source\state-intro.cpp" />
+    <ClCompile Include="Source\states-manager.cpp" />
     <ClCompile Include="Source\state-menu.cpp" />
     <ClCompile Include="Source\state-outro.cpp" />
     <ClCompile Include="Source\state-test.cpp" />
@@ -90,7 +91,7 @@
     <ClInclude Include="Source\state-outro.h" />
     <ClInclude Include="Source\state-test.h" />
     <ClInclude Include="Source\state-i.h" />
-    <ClInclude Include="Source\states-container.h" />
+    <ClInclude Include="Source\states-manager.h" />
     <ClInclude Include="Source\window-manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

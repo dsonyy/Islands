@@ -26,7 +26,7 @@ public:
 	virtual void Pause();
 	virtual void Resume();
 
-
+	virtual StateI * WaitForChange(StatesManager & states_manager);
 private:
 	bool paused_;
 

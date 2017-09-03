@@ -55,3 +55,8 @@ void StateTest::Resume()
 {
 	paused_ = false;
 }
+
+StateI * StateTest::WaitForChange(StatesManager & states_manager)
+{
+
+}
