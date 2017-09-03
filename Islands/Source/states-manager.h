@@ -24,6 +24,8 @@ public:
 
 
 private:
+	StateI * active_state_;
+
 	StateIntro intro_;
 
 };

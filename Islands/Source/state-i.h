@@ -29,7 +29,9 @@ public:
 	virtual void Pause() = 0;
 	virtual void Resume() = 0;
 
-	virtual StateI * WaitForChange(StatesManager & states_manager) = 0;
+	virtual bool IsInit() const = 0;
+	virtual bool IsPaused() const = 0;
+	virtual StateI * IsCompleted(StatesManager & states_manager) = 0;
 
 };
 

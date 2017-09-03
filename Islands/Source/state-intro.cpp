@@ -59,7 +59,7 @@ void StateIntro::Resume()
 	paused_ = false;
 }
 
-StateI * StateIntro::WaitForChange(StatesManager & states_manager)
+StateI * StateIntro::IsCompleted(StatesManager & states_manager)
 {
 	if (switch_to_menu_)
 	{

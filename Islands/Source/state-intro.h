@@ -31,10 +31,14 @@ public:
 	virtual void Pause();
 	virtual void Resume();
 
-	virtual StateI * WaitForChange(StatesManager & states_manager);
+	virtual bool IsInit() const { return init_; }
+	virtual bool IsPaused() const { return paused_; }
+
+	virtual StateI * IsCompleted(StatesManager & states_manager);
 
 
 private:
+	bool init_;
 	bool paused_;
 	bool switch_to_menu_;
 	Buffer rect_;
