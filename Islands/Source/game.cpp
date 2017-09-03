@@ -15,12 +15,16 @@
 #include "game.h"
 #include "buffer.h"
 #include "input-record.h"
-
+#include "resources-manager.h"
 #include "states-manager.h"
 
 
-Game::Game(StatesManager & states, WindowManager & window)
-	: window_(window), states_(states)
+Game::Game(StatesManager & states, 
+	WindowManager & window, 
+	ResourcesManager & resources)
+	: window_(window), 
+	states_(states),
+	resources_(resources)
 {
 	window_.CreateWindow();
 

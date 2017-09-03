@@ -15,7 +15,7 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
-//#include "states-manager.h"
+#include "resources-manager.h"
 #include "window-manager.h"
 #include "state-i.h"
 #include "buffer.h"
@@ -25,7 +25,9 @@ class StatesManager;
 class Game
 {
 public:
-	Game(StatesManager & states, WindowManager & window);
+	Game(StatesManager & states, 
+		WindowManager & window,
+		ResourcesManager & resources);
 	~Game();
 
 	void Loop();
@@ -34,7 +36,8 @@ public:
 	void Render();
 
 private:
-	WindowManager & window_;
 	bool running_;
+	WindowManager & window_;
 	StatesManager & states_;
+	ResourcesManager & resources_;
 };
