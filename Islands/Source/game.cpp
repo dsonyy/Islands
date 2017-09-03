@@ -34,7 +34,7 @@ Game::~Game()
 void Game::Loop()
 {
 	sf::Clock clock;
-	sf::Time next_tick;
+	sf::Time next_tick = clock.getElapsedTime();
 	
 	while (running_)
 	{
