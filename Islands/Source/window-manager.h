@@ -15,11 +15,13 @@
 namespace Window
 {
 	const unsigned int FrameRate = 60;
-	const unsigned int Width = 800;
-	const unsigned int Height = 600;
+	const unsigned int Width = 1280;
+	const unsigned int Height = 720;
 	const int Style = sf::Style::Close | sf::Style::Titlebar;
 	const std::string Title = "Islands";
 }
+
+using namespace Window;
 
 class WindowManager
 	: public sf::RenderWindow
@@ -28,9 +30,8 @@ public:
 	WindowManager() {};
 	~WindowManager() {};
 
-	void CreateWindow(size_t width = 800, size_t height = 600,
-		const std::string & title = "Islands", 
-		size_t style = sf::Style::Close | sf::Style::Titlebar);
+	void CreateWindow(size_t width = Width, size_t height = Height,
+		const std::string & title = Title, size_t style = Style);
 
 private:
 
