@@ -21,7 +21,7 @@ public:
 		sf::Vector2f(Window::Width / 2 , Window::Height / 2)) {}
 	~StateIntro() {}
 
-	virtual void Init();
+	virtual void Init(const ResourcesManager & resources = ResourcesManager());
 	virtual void Cleanup();
 
 	virtual void HandleInput(const InputRecord & input_record);

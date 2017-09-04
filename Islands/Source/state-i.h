@@ -11,6 +11,7 @@
 #include "game.h"
 #include "input-record.h"
 #include "window-manager.h"
+#include "resources-manager.h"
 
 class StatesManager;
 
@@ -19,7 +20,7 @@ class StateI
 public:
 	virtual ~StateI() {}
 
-	virtual void Init() = 0;
+	virtual void Init(const ResourcesManager & resources = ResourcesManager()) = 0;
 	virtual void Cleanup() = 0;
 
 	virtual void HandleInput(const InputRecord & input_record) = 0;

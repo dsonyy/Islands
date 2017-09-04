@@ -4,7 +4,7 @@
 #include "window-manager.h"
 #include "states-manager.h"
 
-void StateMenu::Init()
+void StateMenu::Init(const ResourcesManager & resources)
 {
 	paused_ = false;
 }

@@ -19,7 +19,7 @@ public:
 	StateMenu() : paused_(true) {}
 	~StateMenu() {}
 
-	virtual void Init();
+	virtual void Init(const ResourcesManager & resources = ResourcesManager());
 	virtual void Cleanup();
 
 	virtual void HandleInput(const InputRecord & input_record);

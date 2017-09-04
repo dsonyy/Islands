@@ -6,7 +6,7 @@
 #include "resources-manager.h"
 
 
-bool ResourcesManager::ImportFont(const std::string & filename, const std::string & new_name)
+bool ResourcesManager::ImportFont(const std::string & filename, const std::string & name)
 {
 	sf::Font font;
 	if (!font.loadFromFile(filename))
@@ -14,16 +14,12 @@ bool ResourcesManager::ImportFont(const std::string & filename, const std::strin
 		return false;
 	}
 
-	auto ret = fonts_.insert(std::pair<std::string, sf::Font>(new_name, font));
-	if (ret.second == false)
-	{
-		return false;
-	}
+	fonts_[name] = font;
 
 	return true;
 }
 
-bool ResourcesManager::ImportTexture(const std::string & filename, const std::string & new_name)
+bool ResourcesManager::ImportTexture(const std::string & filename, const std::string & name)
 {
 	sf::Texture tex;
 	if (!tex.loadFromFile(filename))
@@ -31,11 +27,7 @@ bool ResourcesManager::ImportTexture(const std::string & filename, const std::st
 		return false;
 	}
 
-	auto ret = textures_.insert(std::pair<std::string, sf::Texture>(new_name, tex));
-	if (ret.second == false)
-	{
-		return false;
-	}
+	textures_[name] = tex;
 
 	return true;
 }
@@ -58,4 +50,9 @@ void ResourcesManager::RemoveFont(const std::string & name)
 void ResourcesManager::RemoveTexture(const std::string & name)
 {
 	textures_.erase(name);
+}
+
+sf::Font & ResourcesManager::GetDefaultFont()
+{
+	
 }
