@@ -43,7 +43,6 @@
   <ItemGroup>
     <None Include="Islands.licenseheader" />
     <None Include="Resources\CREDIT" />
-    <None Include="Resources\LICENSE" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\buffer.h">
@@ -112,9 +111,6 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\textures\water1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\.spritesheet.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\spritesheets\denzi.png">
