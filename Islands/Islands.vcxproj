@@ -78,6 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Islands.licenseheader" />
+    <None Include="Resources\CREDIT" />
+    <None Include="Resources\LICENSE" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\buffer.h" />
@@ -89,6 +91,22 @@
     <ClInclude Include="Source\state-menu.h" />
     <ClInclude Include="Source\states-manager.h" />
     <ClInclude Include="Source\window-manager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\.spritesheet.png" />
+    <Image Include="Resources\textures\dirt0.png" />
+    <Image Include="Resources\textures\dirt1.png" />
+    <Image Include="Resources\textures\dirt2.png" />
+    <Image Include="Resources\textures\dirt3.png" />
+    <Image Include="Resources\textures\grass-dirt0.png" />
+    <Image Include="Resources\textures\grass-dirt1.png" />
+    <Image Include="Resources\textures\grass-dirt2.png" />
+    <Image Include="Resources\textures\grass0.png" />
+    <Image Include="Resources\textures\grass1.png" />
+    <Image Include="Resources\textures\grass2.png" />
+    <Image Include="Resources\textures\grass3.png" />
+    <Image Include="Resources\textures\water0.png" />
+    <Image Include="Resources\textures\water1.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
