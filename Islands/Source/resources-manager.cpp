@@ -26,7 +26,7 @@ bool ResourcesManager::ImportTexture(const std::string & filename, const std::st
 	{
 		return false;
 	}
-
+	
 	textures_[name] = tex;
 
 	return true;
@@ -54,5 +54,12 @@ void ResourcesManager::RemoveTexture(const std::string & name)
 
 sf::Font & ResourcesManager::GetDefaultFont()
 {
+	if (fonts_.find(Default::Resources::FontRegular) == fonts_.end() &&
+		!ImportFont("Resources/Fonts/Lato-Regular.ttf",
+			Default::Resources::FontRegular))
+	{
+		return sf::Font();
+	}
 	
+	return fonts_[Default::Resources::FontRegular];
 }

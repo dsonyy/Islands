@@ -5,6 +5,14 @@
 
 #include "SFML\Graphics.hpp"
 
+namespace Default
+{
+	namespace Resources
+	{
+		const std::string FontRegular = "__font_regular__";
+	}
+
+}
 
 class ResourcesManager
 {

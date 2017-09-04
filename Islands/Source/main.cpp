@@ -18,6 +18,9 @@
 #include "resources-manager.h"
 #include "game.h"
 
+
+#include <map>
+#include <string>
 int main()
 {
 	WindowManager window;

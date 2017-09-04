@@ -26,7 +26,13 @@ void StateMenu::Update()
 
 void StateMenu::Draw(WindowManager & window)
 {
+	sf::Text txt;
+	txt.setFont(resources_->GetDefaultFont(), );
+	txt.setCharacterSize(24);
+	txt.setOrigin(sf::Vector2f(txt.getLocalBounds()))
 
+	txt.setString("Start game");
+	
 }
 
 void StateMenu::Pause()
