@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\.spritesheet.png" />
+    <Image Include="Resources\spritesheets\denzi.png" />
     <Image Include="Resources\textures\dirt0.png" />
     <Image Include="Resources\textures\dirt1.png" />
     <Image Include="Resources\textures\dirt2.png" />
