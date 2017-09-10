@@ -45,8 +45,7 @@ void Game::Loop()
 		HandleInput();
 
 		if (clock.getElapsedTime() >= next_tick)
-		{
-			Update();
+		{			Update();
 			Render();
 
 			next_tick += sf::milliseconds(1000 / Window::FrameRate);

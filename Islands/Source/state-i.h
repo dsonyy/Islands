@@ -20,7 +20,7 @@ class StateI
 public:
 	virtual ~StateI() {}
 
-	virtual void Init(const ResourcesManager & resources = ResourcesManager()) = 0;
+	virtual void Init(ResourcesManager & resources = ResourcesManager()) = 0;
 	virtual void Cleanup() = 0;
 
 	virtual void HandleInput(const InputRecord & input_record) = 0;

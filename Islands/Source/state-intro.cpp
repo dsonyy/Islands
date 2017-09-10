@@ -4,7 +4,7 @@
 #include "window-manager.h"
 #include "states-manager.h"
 
-void StateIntro::Init(const ResourcesManager & resources)
+void StateIntro::Init(ResourcesManager & resources)
 {
 	loops_ = 0;
 	paused_ = false;
