@@ -67,6 +67,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\click-box-manager.cpp" />
     <ClCompile Include="Source\buffer.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\game.cpp" />
