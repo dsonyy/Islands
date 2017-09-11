@@ -72,6 +72,9 @@
     <ClInclude Include="Source\resources-manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\click-box-manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\dirt0.png">

@@ -29,10 +29,17 @@ void StateMenu::Draw(WindowManager & window)
 {
 	sf::Text txt("Start Game", resources_.GetDefaultFont(), 30);
 	txt.setPosition(sf::Vector2f( 
-		window.getSize().x / 2 - txt.getLocalBounds().width / 2,
+		50,
 		window.getSize().y / 2 - txt.getLocalBounds().height / 2));
-	
+
+
+	sf::Text quit("Quit", resources_.GetDefaultFont(), 30);
+	quit.setPosition(sf::Vector2f(
+		50,
+		window.getSize().y / 2 - txt.getLocalBounds().height / 2 + 50));
+
 	window.draw(txt);
+	window.draw(quit);
 }
 
 void StateMenu::Pause()
