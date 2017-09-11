@@ -38,5 +38,5 @@ public:
 private:
 	bool init_;
 	bool paused_;
-	ResourcesManager * resources_;
+	ResourcesManager resources_;
 };
