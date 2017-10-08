@@ -1,30 +1,32 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 #include <SFML/Graphics.hpp>
 
-typedef sf::Rect<sf::Vector2f> ClickBox;
+struct ClickBox
+{
+	std::string id;
+	sf::Vector2i position;
+	sf::Vector2i size;
+};
 
 class ClickBoxManager
 {
 public:
-
-
 	ClickBoxManager() {}
 	~ClickBoxManager() {}
 
-	std::vector<ClickBox> Hover(const sf::Vector2i & pos);
-	std::vector<ClickBox> Click(const sf::Vector2i & pos);
-	std::vector<ClickBox> Release(const sf::Vector2i & pos);
-	
-	std::vector<ClickBox> Hover(size_t pos_x, size_t pos_y);
-	std::vector<ClickBox> Click(size_t pos_x, size_t pos_y);
-	std::vector<ClickBox> Release(size_t pos_x, size_t pos_y);
+	void AddClickBox(const ClickBox & click_box);
+	void RemoveClickBox(const std::string & id);
 
+	std::vector<ClickBox> Hover(const sf::Vector2i & pos);
+	
 private:
-	bool IsPointInsideRect(size_t px, size_t py, 
-		size_t x0, size_t y0, size_t x1, size_t y1) const;
+	bool IsPointInsideRect(const sf::Vector2i & point_to_check,
+		const sf::Vector2i & position,
+		const sf::Vector2i & size) const;
 
 	std::vector<ClickBox> click_boxes_;
 };
