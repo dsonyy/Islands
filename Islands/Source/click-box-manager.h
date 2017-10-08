@@ -21,7 +21,9 @@ public:
 	void AddClickBox(const ClickBox & click_box);
 	void RemoveClickBox(const std::string & id);
 
-	std::vector<ClickBox> Hover(const sf::Vector2i & pos);
+	bool Check(const sf::Vector2i & pos, const std::string & id) const;
+
+	std::vector<ClickBox> CheckAll(const sf::Vector2i & pos) const;
 	
 private:
 	bool IsPointInsideRect(const sf::Vector2i & point_to_check,

@@ -20,7 +20,20 @@ void ClickBoxManager::RemoveClickBox(const std::string & id)
 	}
 }
 
-std::vector<ClickBox> ClickBoxManager::Hover(const sf::Vector2i & pos)
+bool ClickBoxManager::Check(const sf::Vector2i & pos, const std::string & id) const
+{
+	for each (auto & d in click_boxes_)
+	{
+		if (d.id == id && IsPointInsideRect(pos, d.position, d.size))
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+std::vector<ClickBox> ClickBoxManager::CheckAll(const sf::Vector2i & pos) const
 {
 	std::vector<ClickBox> c;
 

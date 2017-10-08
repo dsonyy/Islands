@@ -8,6 +8,10 @@ void StateMenu::Init(ResourcesManager & resources)
 {
 	paused_ = false;
 	resources_ = resources;
+
+
+	color_ = false;
+	click_box_manager_.AddClickBox(ClickBox{ "test", sf::Vector2i(0,0), sf::Vector2i(100, 100) });
 }
 
 void StateMenu::Cleanup()
@@ -17,12 +21,23 @@ void StateMenu::Cleanup()
 
 void StateMenu::HandleInput(const InputRecord & input_record)
 {
+	if (input_record.MouseMoved())
+	{
+		if (click_box_manager_.Check(input_record.UnpackMousePos(), "test"))
+		{
+			color_ = true;
+		}
+		else
+		{
+			color_ = false;
+		}
+	}
 
 }
 
 void StateMenu::Update()
 {
-
+	
 }
 
 void StateMenu::Draw(WindowManager & window)
@@ -37,6 +52,13 @@ void StateMenu::Draw(WindowManager & window)
 	quit.setPosition(sf::Vector2f(
 		50,
 		window.getSize().y / 2 - txt.getLocalBounds().height / 2 + 50));
+
+	sf::RectangleShape rect(sf::Vector2f(100, 100));
+	rect.setFillColor(sf::Color::White);
+	if (color_)
+	{
+		window.draw(rect);
+	}
 
 	window.draw(txt);
 	window.draw(quit);

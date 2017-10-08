@@ -9,6 +9,7 @@
 #include "buffer.h"
 #include "input-record.h"
 #include "window-manager.h"
+#include "click-box-manager.h"
 
 class StatesManager;
 
@@ -39,4 +40,8 @@ private:
 	bool init_;
 	bool paused_;
 	ResourcesManager resources_;
+	ClickBoxManager click_box_manager_;
+
+	bool color_;
+
 };
