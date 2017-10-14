@@ -10,6 +10,7 @@
 #include "input-record.h"
 #include "window-manager.h"
 #include "click-box-manager.h"
+#include "dialog.h"
 
 class StatesManager;
 
@@ -46,5 +47,7 @@ private:
 	// scene resources
 	sf::Texture background_texture_;
 	sf::Sprite background_;
+	
+	Dialog menu_;
 
 };

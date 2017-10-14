@@ -27,6 +27,15 @@ void StateMenu::Init(ResourcesManager & resources)
 		float(Window::Height) / float(background_texture_.getSize().y)
 	));
 
+	//
+	// MENU
+	menu_.AddHeader("Main Menu");
+	menu_.AddButton("Load Game");
+	menu_.AddButton("New Game");
+	menu_.AddButton("Delete Game");
+	menu_.AddButton("Miscellaneous");
+	menu_.AddButton("Exit");
+	menu_.AddText("No copyright (c) 2017 dsonyy");
 
 
 }
