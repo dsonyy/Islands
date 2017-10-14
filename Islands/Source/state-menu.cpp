@@ -11,19 +11,23 @@ void StateMenu::Init(ResourcesManager & resources)
 	paused_ = false;
 	resources_ = resources;
 
-	// load resources
+	//
+	//  BACKGROUND
 	if (!resources_.ImportTexture("resources/textures/bg-menu.png", "bg-menu"))
 	{
 		std::cout << "Unable to load bg-menu";
 	}
 	background_texture_ = resources_.GetTexture("bg-menu");
 	background_.setTexture(background_texture_);
+	float x = float(Window::Width) / float(background_texture_.getSize().x);
+	float y = float(Window::Height) / float(background_texture_.getSize().y);
+
+	background_.setScale(sf::Vector2f(
+		float(Window::Width) / float(background_texture_.getSize().x),
+		float(Window::Height) / float(background_texture_.getSize().y)
+	));
 
 
-
-	color_ = false;
-	click_box_manager_.AddClickBox(ClickBox{ "test", sf::Vector2i(0,0), sf::Vector2i(100, 100) });
-	
 
 }
 
@@ -38,11 +42,9 @@ void StateMenu::HandleInput(const InputRecord & input_record)
 	{
 		if (click_box_manager_.Check(input_record.UnpackMousePos(), "test"))
 		{
-			color_ = true;
 		}
 		else
 		{
-			color_ = false;
 		}
 	}
 
@@ -57,30 +59,6 @@ void StateMenu::Draw(WindowManager & window)
 {
 	window.draw(background_);
 
-
-
-	///////////
-
-	sf::Text txt("Start Game", resources_.GetDefaultFont(), 30);
-	txt.setPosition(sf::Vector2f( 
-		50,
-		window.getSize().y / 2 - txt.getLocalBounds().height / 2));
-
-
-	sf::Text quit("Quit", resources_.GetDefaultFont(), 30);
-	quit.setPosition(sf::Vector2f(
-		50,
-		window.getSize().y / 2 - txt.getLocalBounds().height / 2 + 50));
-
-	sf::RectangleShape rect(sf::Vector2f(100, 100));
-	rect.setFillColor(sf::Color::White);
-	if (color_)
-	{
-		window.draw(rect);
-	}
-
-	window.draw(txt);
-	window.draw(quit);
 }
 
 void StateMenu::Pause()

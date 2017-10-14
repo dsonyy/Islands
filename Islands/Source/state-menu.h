@@ -47,7 +47,4 @@ private:
 	sf::Texture background_texture_;
 	sf::Sprite background_;
 
-
-	bool color_;
-
 };

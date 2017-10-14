@@ -15,8 +15,8 @@
 namespace Window
 {
 	const unsigned int FrameRate = 60;
-	const unsigned int Width = 1280;
-	const unsigned int Height = 720;
+	const unsigned int Width = 800;
+	const unsigned int Height = 450;
 	const int Style = sf::Style::Close | sf::Style::Titlebar;
 	const std::string Title = "Islands";
 }

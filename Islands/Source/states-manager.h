@@ -21,7 +21,7 @@ public:
 
 	StateI & GetActiveState();
 
-	StateI & BeginState() { return intro_; }
+	StateI & BeginState() { return menu_; }
 
 	StateI & Intro() { return intro_; }
 	StateI & Menu() { return menu_; }
