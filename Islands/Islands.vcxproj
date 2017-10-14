@@ -69,6 +69,7 @@
   <ItemGroup>
     <ClCompile Include="Source\click-box-manager.cpp" />
     <ClCompile Include="Source\buffer.cpp" />
+    <ClCompile Include="Source\dialog.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\game.cpp" />
     <ClCompile Include="Source\resources-manager.cpp" />
@@ -84,6 +85,7 @@
   <ItemGroup>
     <ClInclude Include="Source\click-box-manager.h" />
     <ClInclude Include="Source\buffer.h" />
+    <ClInclude Include="Source\dialog.h" />
     <ClInclude Include="Source\game.h" />
     <ClInclude Include="Source\resources-manager.h" />
     <ClInclude Include="Source\input-record.h" />
