@@ -6,6 +6,12 @@
 class Dialog
 {
 public:
+	struct Element
+	{
+		enum { TEXT, HEADER, BUTTON } type;
+		std::string content;
+	};
+
 	Dialog() {}
 	~Dialog() {}
 
@@ -19,8 +25,7 @@ public:
 	void AddText(const std::string & text, int position);
 
 private:
-	std::map<sf::Text, int> texts_;
-	std::map<sf::Text, int> headers_;
-	std::map<sf::Text, int> buttons_;
+
+	std::vector<Element> column_;
 
 };
