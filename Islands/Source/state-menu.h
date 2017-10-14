@@ -38,6 +38,9 @@ public:
 
 
 private:
+	void InitBackground();
+	void InitDialog();
+
 
 	bool init_;
 	bool paused_;
@@ -48,6 +51,6 @@ private:
 	sf::Texture background_texture_;
 	sf::Sprite background_;
 	
-	Dialog menu_;
+	Dialog dialog_;
 
 };

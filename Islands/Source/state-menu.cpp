@@ -11,8 +11,13 @@ void StateMenu::Init(ResourcesManager & resources)
 	paused_ = false;
 	resources_ = resources;
 
-	//
-	//  BACKGROUND
+	InitBackground();
+	InitDialog();
+
+}
+
+void StateMenu::InitBackground()
+{
 	if (!resources_.ImportTexture("resources/textures/bg-menu.png", "bg-menu"))
 	{
 		std::cout << "Unable to load bg-menu";
@@ -26,18 +31,19 @@ void StateMenu::Init(ResourcesManager & resources)
 		float(Window::Width) / float(background_texture_.getSize().x),
 		float(Window::Height) / float(background_texture_.getSize().y)
 	));
+}
 
-	//
-	// MENU
-	menu_.AddHeader("Main Menu");
-	menu_.AddButton("Load Game");
-	menu_.AddButton("New Game");
-	menu_.AddButton("Delete Game");
-	menu_.AddButton("Miscellaneous");
-	menu_.AddButton("Exit");
-	menu_.AddText("No copyright (c) 2017 dsonyy");
+void StateMenu::InitDialog()
+{
+	dialog_.AddHeader("Main Menu");
 
+	dialog_.AddButton("Load Game");
+	dialog_.AddButton("New Game");
+	dialog_.AddButton("Delete Game");
+	dialog_.AddButton("Miscellaneous");
+	dialog_.AddButton("Exit");
 
+	dialog_.AddText("No copyright (c) 2017 dsonyy");
 }
 
 void StateMenu::Cleanup()
