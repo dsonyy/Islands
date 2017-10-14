@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <iostream>
 
 #include "state-menu.h"
 #include "window-manager.h"
@@ -6,12 +7,24 @@
 
 void StateMenu::Init(ResourcesManager & resources)
 {
+	// initialize variables
 	paused_ = false;
 	resources_ = resources;
+
+	// load resources
+	if (!resources_.ImportTexture("resources/textures/bg-menu.png", "bg-menu"))
+	{
+		std::cout << "Unable to load bg-menu";
+	}
+	background_texture_ = resources_.GetTexture("bg-menu");
+	background_.setTexture(background_texture_);
+
 
 
 	color_ = false;
 	click_box_manager_.AddClickBox(ClickBox{ "test", sf::Vector2i(0,0), sf::Vector2i(100, 100) });
+	
+
 }
 
 void StateMenu::Cleanup()
@@ -42,6 +55,12 @@ void StateMenu::Update()
 
 void StateMenu::Draw(WindowManager & window)
 {
+	window.draw(background_);
+
+
+
+	///////////
+
 	sf::Text txt("Start Game", resources_.GetDefaultFont(), 30);
 	txt.setPosition(sf::Vector2f( 
 		50,

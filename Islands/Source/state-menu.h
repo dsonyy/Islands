@@ -37,10 +37,16 @@ public:
 
 
 private:
+
 	bool init_;
 	bool paused_;
 	ResourcesManager resources_;
 	ClickBoxManager click_box_manager_;
+
+	// scene resources
+	sf::Texture background_texture_;
+	sf::Sprite background_;
+
 
 	bool color_;
 
