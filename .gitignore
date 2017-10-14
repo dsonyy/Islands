@@ -9,6 +9,9 @@
 # SFML files
 SFML
 
+# Lua files
+Lua
+
 # User-specific files
 *.suo
 *.user
