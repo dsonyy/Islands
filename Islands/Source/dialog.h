@@ -3,6 +3,7 @@
 
 #include <SFML\Graphics.hpp>
 
+
 class Dialog
 	: public sf::Drawable
 {
@@ -12,7 +13,7 @@ public:
 		enum { TEXT, HEADER, BUTTON } type;
 		std::string content;
 	};
-
+	
 	Dialog();
 	~Dialog() {}
 
@@ -34,7 +35,6 @@ private:
 	sf::RectangleShape dialog_border_;
 	sf::RectangleShape dialog_background_;
 
-	sf::RectangleShape button_border_;
-	sf::RectangleShape button_background_;
+	sf::RectangleShape button_;
 
 };
