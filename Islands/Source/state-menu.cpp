@@ -73,6 +73,7 @@ void StateMenu::Update()
 void StateMenu::Draw(WindowManager & window)
 {
 	window.draw(background_);
+	window.draw(dialog_);
 
 }
 

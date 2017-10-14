@@ -6,6 +6,28 @@
 #include "dialog.h"
 
 
+Dialog::Dialog()
+{
+	dialog_border_.setSize(sf::Vector2f(100, 150));
+	dialog_border_.setFillColor(sf::Color::White);
+
+	dialog_background_.setSize(sf::Vector2f(98, 148));
+	dialog_background_.setOrigin(sf::Vector2f(-1, -1));
+	dialog_background_.setFillColor(sf::Color::Blue);
+
+
+	button_border_;
+	button_background_;
+}
+
+
+void Dialog::draw(sf::RenderTarget & target, sf::RenderStates states) const
+{
+	target.draw(dialog_border_, states);
+	target.draw(dialog_background_, states);
+
+}
+
 void Dialog::AddButton(const std::string & title)
 {
 	column_.push_back({ Element::BUTTON, title });
