@@ -12,6 +12,12 @@ namespace Default
 		const std::string FontRegular = "__font_regular__";
 	}
 
+	namespace Dialog
+	{
+		int MinWidth = 100;
+		int MinHeight = 50;
+		sf::Color Color = sf::Color::Blue;
+	}
 }
 
 class ResourcesManager
