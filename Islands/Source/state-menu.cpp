@@ -35,15 +35,6 @@ void StateMenu::InitBackground()
 
 void StateMenu::InitDialog()
 {
-	dialog_.AddHeader("Main Menu");
-
-	dialog_.AddButton("Load Game");
-	dialog_.AddButton("New Game");
-	dialog_.AddButton("Delete Game");
-	dialog_.AddButton("Miscellaneous");
-	dialog_.AddButton("Exit");
-
-	dialog_.AddText("No copyright (c) 2017 dsonyy");
 }
 
 void StateMenu::Cleanup()
@@ -73,7 +64,6 @@ void StateMenu::Update()
 void StateMenu::Draw(WindowManager & window)
 {
 	window.draw(background_);
-	window.draw(dialog_);
 
 }
 

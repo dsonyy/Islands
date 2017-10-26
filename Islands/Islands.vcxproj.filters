@@ -42,9 +42,6 @@
     <ClCompile Include="Source\click-box-manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\dialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Islands.licenseheader" />
@@ -79,9 +76,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\click-box-manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\dialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
