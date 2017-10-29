@@ -16,6 +16,7 @@
 #include <SFML\Graphics.hpp>
 
 #include "resources-manager.h"
+#include "input-record.h"
 #include "window-manager.h"
 #include "state-i.h"
 #include "buffer.h"
@@ -40,4 +41,6 @@ private:
 	WindowManager & window_;
 	StatesManager & states_;
 	ResourcesManager & resources_;
+
+	InputRecord input_;
 };

@@ -44,15 +44,18 @@ void StateMenu::Cleanup()
 
 void StateMenu::HandleInput(const InputRecord & input_record)
 {
-	if (input_record.MouseMoved())
+	if (input_record.IsInputChanged())
 	{
-		if (click_box_manager_.Check(input_record.UnpackMousePos(), "test"))
-		{
-		}
-		else
-		{
-		}
+		std::cout << "-----------------------------------------------\n";
+		std::cout << "Input Record\n";
+		std::cout << input_record.GetMouseButton(sf::Mouse::Left) << "\n";
+		std::cout << input_record.GetMouseButton(sf::Mouse::Right) << "\n";
+		std::cout << input_record.GetKeyboardKey(sf::Keyboard::A) << "\n";
+		std::cout << input_record.GetKeyboardKey(sf::Keyboard::S) << "\n";
+		std::cout << input_record.GetKeyboardKey(sf::Keyboard::D) << "\n";
+		std::cout << input_record.GetKeyboardKey(sf::Keyboard::F) << "\n";
 	}
+
 
 }
 

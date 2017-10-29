@@ -17,16 +17,16 @@ void StateIntro::Cleanup()
 
 void StateIntro::HandleInput(const InputRecord & input_record)
 {
-	if (input_record.ButtonClicked() || input_record.KeyClicked())
-	{
-		switch_to_menu_ = true;
-	}
+	//if (input_record.ButtonClicked() || input_record.KeyClicked())
+	//{
+	//	switch_to_menu_ = true;
+	//}
 
-	if (input_record.MouseMoved())
-	{
-		rect_.setPosition(
-			static_cast<sf::Vector2f>(input_record.UnpackMousePos()));
-	}
+	//if (input_record.MouseMoved())
+	//{
+	//	rect_.setPosition(
+	//		static_cast<sf::Vector2f>(input_record.UnpackMousePos()));
+	//}
 }
 
 void StateIntro::Update()

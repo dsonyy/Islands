@@ -56,7 +56,6 @@ void Game::Loop()
 
 void Game::HandleInput()
 {
-	InputRecord input_record;
 	sf::Event event;
 
 	while (window_.pollEvent(event))
@@ -68,21 +67,31 @@ void Game::HandleInput()
 			break;
 
 		case sf::Event::MouseMoved:
-			input_record.PackMousePos(sf::Mouse::getPosition(window_));
+			input_.UpdateMousePos(window_);
 			break;
 			
+		case sf::Event::MouseButtonPressed:
+			input_.PressMouseButton(event.mouseButton.button);
+			break;
+
+		case sf::Event::MouseButtonReleased:
+			input_.ReleaseMouseButton(event.mouseButton.button);
+			break;
+
 		case sf::Event::KeyPressed:
-			input_record.PackKeyboard(event.key.code, InputStatus::PRESSED);
+			input_.PressKeyboardKey(event.key.code);
 			break;
 
 		case sf::Event::KeyReleased:
-			input_record.PackKeyboard(event.key.code, InputStatus::RELEASED);
+			input_.ReleaseKeyboardKey(event.key.code);
 			break;
 
 		}
 	}
 
-	states_.GetActiveState().HandleInput(input_record);
+	states_.GetActiveState().HandleInput(input_);
+
+	input_.Refresh();
 }
 
 void Game::Update()

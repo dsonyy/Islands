@@ -20,6 +20,18 @@ InputRecord::InputRecord()
 	}
 }
 
+bool InputRecord::IsInputChanged() const
+{
+	return (mouse_moved_ || mouse_buttons_changed_ || keyboard_keys_changed_);
+}
+
+void InputRecord::Refresh()
+{
+	mouse_moved_ = false;
+	mouse_buttons_changed_ = false;
+	keyboard_keys_changed_ = false;
+}
+
 
 void InputRecord::UpdateMousePos(const sf::Window & window)
 {
@@ -48,7 +60,7 @@ sf::Vector2i InputRecord::GetMousePos() const
 	return mouse_pos_;
 }
 
-bool InputRecord::MousePosChanged() const
+bool InputRecord::IsMousePosChanged() const
 {
 	return mouse_moved_;
 }
@@ -78,7 +90,7 @@ InputRecord::button InputRecord::GetMouseButton(sf::Mouse::Button button) const
 	return buttons_[button];
 }
 
-bool InputRecord::MouseButtonsChanged() const
+bool InputRecord::IsMouseButtonsChanged() const
 {
 	return mouse_buttons_changed_;
 }
@@ -110,7 +122,7 @@ InputRecord::key InputRecord::GetKeyboardKey(sf::Keyboard::Key key) const
 	return keys_[key];
 }
 
-bool InputRecord::KeyboardKeysChanged() const
+bool InputRecord::IsKeyboardKeysChanged() const
 {
 	return keyboard_keys_changed_;
 }

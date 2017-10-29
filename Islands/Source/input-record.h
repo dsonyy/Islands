@@ -25,13 +25,16 @@ public:
 	InputRecord();
 	~InputRecord() {}
 
+	void Refresh();
+	bool IsInputChanged() const;
+
 	//
 	//	MOUSE POSITION
 	//
 	void UpdateMousePos(const sf::Window & window);
 	void SetMousePos(const sf::Vector2i & pos);
 	sf::Vector2i GetMousePos() const;
-	bool MousePosChanged() const;
+	bool IsMousePosChanged() const;
 
 	//
 	//	MOUSE BUTTONS
@@ -39,7 +42,7 @@ public:
 	void PressMouseButton(sf::Mouse::Button button);
 	void ReleaseMouseButton(sf::Mouse::Button button);
 	button GetMouseButton(sf::Mouse::Button button) const;
-	bool MouseButtonsChanged() const;
+	bool IsMouseButtonsChanged() const;
 
 	//
 	//	KEYBOARD
@@ -47,7 +50,7 @@ public:
 	void PressKeyboardKey(sf::Keyboard::Key key);
 	void ReleaseKeyboardKey(sf::Keyboard::Key key);
 	key  GetKeyboardKey(sf::Keyboard::Key key) const;
-	bool KeyboardKeysChanged() const;
+	bool IsKeyboardKeysChanged() const;
 
 
 private:
