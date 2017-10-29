@@ -27,15 +27,14 @@ If you have SFML somewhere in your computer:
 3. Change "AdditionalDependencies" to your own paths of:
 - "sfml-system-d.lib", 
 - "sfml-window-d.lib",
-- "sfml-graphics-d.lib" 
-and (don't forget about "-d" suffix).
+- "sfml-graphics-d.lib".
+
 4. Open Islands/Islands/ReleaseProperties.props to change Release mode paths.
 5. Change "AdditionalIncludeDirectories" to your own SFML "include" directory path.
 6. Change "AdditionalDependencies" to your own paths of:
 - "sfml-system.lib", 
 - "sfml-window.lib",
-- "sfml-graphics.lib",
-(there aren't any suffixes).
+- "sfml-graphics.lib".
 
 If you think about static linking, you have to do it in your own. More info there: https://www.sfml-dev.org/tutorials/2.4/start-vc.php 
 
