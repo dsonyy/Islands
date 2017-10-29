@@ -12,74 +12,55 @@
 
 #include <SFML\Window.hpp>
 
-enum class InputStatus { UNCHANGED = -1, RELEASED = 0, PRESSED };
-
-
 class InputRecord
 {
 public:
-	InputRecord() : mouse_moved_(false),
-		key_clikced_(false),
-		button_clicked_(false) {}
+
+	typedef bool key;
+	typedef bool button;
+
+	const bool PRESSED = true;
+	const bool RELEASED = false;
+	
+	InputRecord();
 	~InputRecord() {}
 
-	void PackKeyboard(sf::Keyboard::Key keyboard_key, InputStatus status)
-	{
-		if (status == InputStatus::PRESSED) key_clikced_ = true;
-		keys_[keyboard_key] = status;
+	//
+	//	MOUSE POSITION
+	//
+	void UpdateMousePos(const sf::Window & window);
+	void SetMousePos(const sf::Vector2i & pos);
+	sf::Vector2i GetMousePos() const;
+	bool MousePosChanged() const;
 
-	}
+	//
+	//	MOUSE BUTTONS
+	//
+	void PressMouseButton(sf::Mouse::Button button);
+	void ReleaseMouseButton(sf::Mouse::Button button);
+	button GetMouseButton(sf::Mouse::Button button) const;
+	bool MouseButtonsChanged() const;
 
-	void PackMousePos(sf::Vector2i mouse_pos)
-	{
-		mouse_moved_ = true;
-		mouse_pos_ = mouse_pos;
-	}
+	//
+	//	KEYBOARD
+	//
+	void PressKeyboardKey(sf::Keyboard::Key key);
+	void ReleaseKeyboardKey(sf::Keyboard::Key key);
+	key  GetKeyboardKey(sf::Keyboard::Key key) const;
+	bool KeyboardKeysChanged() const;
 
-	void PackMouseButton(sf::Mouse::Button mouse_button, InputStatus status)
-	{
-		if (status == InputStatus::PRESSED) button_clicked_ = true;
-		buttons_[mouse_button] = status;
-	}
-
-	InputStatus UnpackKeyboard(sf::Keyboard::Key key_to_get) const
-	{
-		return keys_[key_to_get];
-	}
-
-	InputStatus UnpackMouseButton(sf::Mouse::Button mouse_button_to_get) const
-	{
-		return buttons_[mouse_button_to_get];
-	}
-
-	bool MouseMoved() const
-	{
-		return mouse_moved_;
-	}
-
-	bool KeyClicked() const
-	{
-		return key_clikced_;
-	}
-
-	bool ButtonClicked() const
-	{
-		return button_clicked_;
-	}
-
-	sf::Vector2i UnpackMousePos() const
-	{
-		return mouse_pos_;
-	}
 
 private:
-	bool key_clikced_;
-	InputStatus keys_[sf::Keyboard::KeyCount];
-	
-	bool button_clicked_;
-	InputStatus buttons_[sf::Mouse::ButtonCount];
-
+	//	MOUSE POSITION
 	bool mouse_moved_;
 	sf::Vector2i mouse_pos_;
+
+	//	MOUSE BUTTONS
+	bool mouse_buttons_changed_;
+	button buttons_[sf::Mouse::ButtonCount];
+
+	//	KEYBOARD
+	bool keyboard_keys_changed_;
+	key keys_[sf::Keyboard::KeyCount];
 
 };
