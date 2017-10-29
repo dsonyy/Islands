@@ -24,10 +24,18 @@ If you just download SFML:
 If you have SFML somewhere in your computer:
 1. Open Islands/Islands/DebugProperties.props to change Debug mode paths.
 2. Change "AdditionalIncludeDirectories" to your own SFML "include" directory path.
-3. Change "AdditionalDependencies" to your own SFML "sfml-system-d.lib", "sfml-window-d.lib and "sfml-graphics-d.lib" directory path (don't forget about "-d" suffix).
+3. Change "AdditionalDependencies" to your own paths of:
+- "sfml-system-d.lib", 
+- "sfml-window-d.lib",
+- "sfml-graphics-d.lib" 
+and (don't forget about "-d" suffix).
 4. Open Islands/Islands/ReleaseProperties.props to change Release mode paths.
 5. Change "AdditionalIncludeDirectories" to your own SFML "include" directory path.
-6. Change "AdditionalDependencies" to your own "sfml-system.lib", "sfml-window.lib and "sfml-graphics.lib" path (there aren't any suffixes).
+6. Change "AdditionalDependencies" to your own paths of:
+- "sfml-system.lib", 
+- "sfml-window.lib",
+- "sfml-graphics.lib",
+(there aren't any suffixes).
 
 If you think about static linking, you have to do it in your own. More info there: https://www.sfml-dev.org/tutorials/2.4/start-vc.php 
 
