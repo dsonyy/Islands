@@ -32,7 +32,7 @@ public:
 
 	virtual bool IsInit() const = 0;
 	virtual bool IsPaused() const = 0;
-	virtual StateI * IsCompleted(StatesManager & states_manager) = 0;
+	virtual StateI * GetNextState(StatesManager & states_manager) = 0;
 
 };
 

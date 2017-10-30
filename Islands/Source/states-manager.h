@@ -9,8 +9,7 @@
 #pragma once
 
 #include "state-i.h"
-#include "state-intro.h"
-#include "state-menu.h"
+#include "state-null.h"
 
 
 class StatesManager
@@ -21,15 +20,13 @@ public:
 
 	StateI & GetActiveState();
 
-	StateI & BeginState() { return menu_; }
+	StateI & BeginState() { return null_; }
 
-	StateI & Intro() { return intro_; }
-	StateI & Menu() { return menu_; }
+	StateI & Null() { return null_; }
 
 
 private:
 	StateI * active_state_;
 
-	StateIntro intro_;
-	StateMenu menu_;
+	StateNull null_;
 };
