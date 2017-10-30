@@ -47,6 +47,6 @@ void StateNull::Resume()
 
 StateI * StateNull::GetNextState(StatesManager & states_manager)
 {
-	return &states_manager.Null();
+	return this;
 }
 

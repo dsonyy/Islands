@@ -74,6 +74,7 @@
     <ClCompile Include="Source\game.cpp" />
     <ClCompile Include="Source\resources-manager.cpp" />
     <ClCompile Include="Source\state-null.cpp" />
+    <ClCompile Include="Source\state-test.cpp" />
     <ClCompile Include="Source\states-manager.cpp" />
     <ClCompile Include="Source\window-manager.cpp" />
   </ItemGroup>
@@ -89,6 +90,7 @@
     <ClInclude Include="Source\input-record.h" />
     <ClInclude Include="Source\state-i.h" />
     <ClInclude Include="Source\state-null.h" />
+    <ClInclude Include="Source\state-test.h" />
     <ClInclude Include="Source\states-manager.h" />
     <ClInclude Include="Source\window-manager.h" />
   </ItemGroup>

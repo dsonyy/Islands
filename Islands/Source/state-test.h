@@ -4,19 +4,20 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
-#include "game.h"
+#include "state-null.h"
 #include "state-i.h"
+#include "game.h"
 #include "input-record.h"
 #include "window-manager.h"
 
 class StatesManager;
 
-class StateNull
+class StateTest
 	: public StateI
 {
 public:
-	StateNull() : paused_(true), init_(false) {}
-	~StateNull() {}
+	StateTest() : init_(false), paused_(true) {}
+	~StateTest() {}
 
 	virtual void Init(ResourcesManager & resources = ResourcesManager());
 	virtual void Cleanup();
@@ -33,10 +34,13 @@ public:
 
 	virtual StateI * GetNextState(StatesManager & states_manager);
 
-
 protected:
 	bool init_;
 	bool paused_;
 	ResourcesManager resources_;
+
+private:
+	long long update_counter_;
+	long long redraw_counter_;
 
 };
