@@ -28,5 +28,10 @@ namespace Global
 		const std::string BoldItalic2	= "resources/";
 	}
 
+	namespace Textures
+	{
+
+	}
+
 }
 
