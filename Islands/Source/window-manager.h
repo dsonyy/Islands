@@ -12,16 +12,9 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
-namespace Window
-{
-	const unsigned int FrameRate = 60;
-	const unsigned int Width = 800;
-	const unsigned int Height = 450;
-	const int Style = sf::Style::Close | sf::Style::Titlebar;
-	const std::string Title = "Islands";
-}
+#include "globals.h"
 
-using namespace Window;
+using namespace Global::Window;
 
 class WindowManager
 	: public sf::RenderWindow

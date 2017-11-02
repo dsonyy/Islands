@@ -5,35 +5,24 @@
 
 #include "SFML\Graphics.hpp"
 
-namespace Default
-{
-	namespace Resources
-	{
-		const std::string FontRegular = "__font_regular__";
-	}
-
-}
-
 class ResourcesManager
 {
 public:
-	ResourcesManager() {}
-	~ResourcesManager() {}
+	ResourcesManager();
+	~ResourcesManager();
 
-	bool ImportFont(const std::string & filename, const std::string & name);
-	bool ImportTexture(const std::string & filename, const std::string & name);
+	bool ImportFont(const std::string & filename);
+	bool ImportTexture(const std::string & filename);
 
-	void RemoveFont(const std::string & new_name);
-	void RemoveTexture(const std::string & new_name);
+	void RemoveFont(const std::string & filename);
+	void RemoveTexture(const std::string & filename);
 
-	sf::Font & GetFont(const std::string & name);
-	sf::Texture & GetTexture(const std::string & name);
-
-	sf::Font & GetDefaultFont();
+	sf::Font & GetFont(const std::string & filename);
+	sf::Texture & GetTexture(const std::string & filename);
 
 private:
-	std::map<std::string, sf::Font> fonts_;
-	std::map<std::string, sf::Texture> textures_;
+	std::map<std::string /*filename*/, sf::Font /*data*/> fonts_;
+	std::map<std::string /*filename*/, sf::Texture /*data*/> textures_;
 
 
 };

@@ -12,6 +12,7 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 
+#include "globals.h"
 #include "game.h"
 #include "buffer.h"
 #include "input-record.h"
@@ -48,7 +49,7 @@ void Game::Loop()
 		{			Update();
 			Render();
 
-			next_tick += sf::milliseconds(1000 / Window::FrameRate);
+			next_tick += sf::milliseconds(1000 / Global::Window::FrameRate);
 		}
 
 	}

@@ -85,6 +85,7 @@
   <ItemGroup>
     <ClInclude Include="Source\click-box-manager.h" />
     <ClInclude Include="Source\buffer.h" />
+    <ClInclude Include="Source\globals.h" />
     <ClInclude Include="Source\game.h" />
     <ClInclude Include="Source\resources-manager.h" />
     <ClInclude Include="Source\input-record.h" />

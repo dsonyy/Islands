@@ -6,9 +6,6 @@
  */
 
 
-#include <vector>
-#include <iostream>
-
 #include <SFML\System.hpp>
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
@@ -18,9 +15,6 @@
 #include "resources-manager.h"
 #include "game.h"
 
-
-#include <map>
-#include <string>
 int main()
 {
 	WindowManager window;

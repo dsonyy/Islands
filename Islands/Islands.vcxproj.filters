@@ -81,6 +81,9 @@
     <ClInclude Include="Source\state-test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\textures\dirt0.png">

@@ -5,8 +5,18 @@
 
 #include "resources-manager.h"
 
+ResourcesManager::ResourcesManager()
+{
 
-bool ResourcesManager::ImportFont(const std::string & filename, const std::string & name)
+}
+
+ResourcesManager::~ResourcesManager()
+{
+	fonts_.clear();
+	textures_.clear();
+}
+
+bool ResourcesManager::ImportFont(const std::string & filename)
 {
 	sf::Font font;
 	if (!font.loadFromFile(filename))
@@ -14,12 +24,12 @@ bool ResourcesManager::ImportFont(const std::string & filename, const std::strin
 		return false;
 	}
 
-	fonts_[name] = font;
+	fonts_[filename] = font;
 
 	return true;
 }
 
-bool ResourcesManager::ImportTexture(const std::string & filename, const std::string & name)
+bool ResourcesManager::ImportTexture(const std::string & filename)
 {
 	sf::Texture tex;
 	if (!tex.loadFromFile(filename))
@@ -27,39 +37,27 @@ bool ResourcesManager::ImportTexture(const std::string & filename, const std::st
 		return false;
 	}
 	
-	textures_[name] = tex;
+	textures_[filename] = tex;
 
 	return true;
 }
 
-sf::Font & ResourcesManager::GetFont(const std::string & name)
+sf::Font & ResourcesManager::GetFont(const std::string & filename)
 {
-	return fonts_[name];
+	return fonts_[filename];
 }
 
-sf::Texture & ResourcesManager::GetTexture(const std::string & name)
+sf::Texture & ResourcesManager::GetTexture(const std::string & filename)
 {
-	return textures_[name];
+	return textures_[filename];
 }
 
-void ResourcesManager::RemoveFont(const std::string & name)
+void ResourcesManager::RemoveFont(const std::string & filename)
 {
-	fonts_.erase(name);
+	fonts_.erase(filename);
 }
 
-void ResourcesManager::RemoveTexture(const std::string & name)
+void ResourcesManager::RemoveTexture(const std::string & filename)
 {
-	textures_.erase(name);
-}
-
-sf::Font & ResourcesManager::GetDefaultFont()
-{
-	if (fonts_.find(Default::Resources::FontRegular) == fonts_.end() &&
-		!ImportFont("Resources/Fonts/Lato-Regular.ttf",
-			Default::Resources::FontRegular))
-	{
-		return sf::Font();
-	}
-	
-	return fonts_[Default::Resources::FontRegular];
+	textures_.erase(filename);
 }
