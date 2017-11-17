@@ -38,7 +38,7 @@ If you have SFML somewhere in your computer:
 
 If you think about static linking, you have to do it in your own. More info there: https://www.sfml-dev.org/tutorials/2.4/start-vc.php 
 
-### Compile
+### Compiling
 If you successfully install SFML, open .sln file and build project in Debug or Release mode.
 
 
