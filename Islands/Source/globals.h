@@ -17,15 +17,10 @@ namespace Global
 
 	namespace Font
 	{
-		const std::string Regular1		= "resources/";
-		const std::string Bold1			= "resources/";
-		const std::string Italic1		= "resources/";
-		const std::string BoldItalic1	= "resources/";
-
-		const std::string Regular2		= "resources/";
-		const std::string Bold2			= "resources/";
-		const std::string Italic2		= "resources/";
-		const std::string BoldItalic2	= "resources/";
+		const std::string Courier	= "resources/cour.ttf";
+		const std::string CourierB	= "resources/courbd.ttf";
+		const std::string CourierI	= "resources/couri.ttf";
+		const std::string CourierBI	= "resources/courbi.ttf";
 	}
 
 	namespace Textures
