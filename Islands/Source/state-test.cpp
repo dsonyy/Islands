@@ -39,11 +39,6 @@ void StateTest::Update()
 void StateTest::Draw(WindowManager & window)
 {
 	std::cout << "Redraw: " << ++redraw_counter_ << std::endl;
-	sf::Text text("Update: 2115", resources_.GetFont(Global::Font::Courier), 30);
-	text.setStyle(sf::Text::Style::Bold);
-	text.setPosition(sf::Vector2f(0, 0));
-	text.setOrigin(sf::Vector2f(0, 0));
-	window.draw(text);
 }
 
 void StateTest::Pause()
