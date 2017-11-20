@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 
+#include "globals.h"
 #include "state-test.h"
 #include "window-manager.h"
 #include "states-manager.h"
@@ -9,11 +10,13 @@ void StateTest::Init(ResourcesManager & resources)
 {
 	update_counter_ = 0;
 	redraw_counter_ = 0;
+
+	resources_.ImportFont(Global::Font::Courier);
 }
 
 void StateTest::Cleanup()
 {
-
+	resources_.Clear();
 }
 
 void StateTest::HandleInput(const InputRecord & input_record)
@@ -36,6 +39,11 @@ void StateTest::Update()
 void StateTest::Draw(WindowManager & window)
 {
 	std::cout << "Redraw: " << ++redraw_counter_ << std::endl;
+	sf::Text text("Update: 2115", resources_.GetFont(Global::Font::Courier), 30);
+	text.setStyle(sf::Text::Style::Bold);
+	text.setPosition(sf::Vector2f(0, 0));
+	text.setOrigin(sf::Vector2f(0, 0));
+	window.draw(text);
 }
 
 void StateTest::Pause()

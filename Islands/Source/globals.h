@@ -18,9 +18,6 @@ namespace Global
 	namespace Font
 	{
 		const std::string Courier	= "resources/fonts/cour.ttf";
-		const std::string CourierB	= "resources/fonts/courbd.ttf";
-		const std::string CourierI	= "resources/fonts/couri.ttf";
-		const std::string CourierBI	= "resources/fonts/courbi.ttf";
 	}
 
 	namespace Textures
