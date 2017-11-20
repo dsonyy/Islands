@@ -52,12 +52,18 @@ sf::Texture & ResourcesManager::GetTexture(const std::string & filename)
 	return textures_[filename];
 }
 
-void ResourcesManager::RemoveFont(const std::string & filename)
+void ResourcesManager::Clear()
+{
+	fonts_.clear();
+	textures_.clear();
+}
+
+void ResourcesManager::ClearFont(const std::string & filename)
 {
 	fonts_.erase(filename);
 }
 
-void ResourcesManager::RemoveTexture(const std::string & filename)
+void ResourcesManager::ClearTexture(const std::string & filename)
 {
 	textures_.erase(filename);
 }
